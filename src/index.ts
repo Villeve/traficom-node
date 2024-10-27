@@ -2,12 +2,12 @@ import {
   getTETRAMobileNetworkCodes,
   getTETRAMobileNetworkCodeById,
   TETRAMobileNetworkCode,
-} from "./tetra-mobile-network-codes";
+} from "./endpoints/tetra-mobile-network-codes";
 import {
   getAircraftRegister,
   getAircraftRegisterById,
   AircraftRegister,
-} from "./aircraft-registers";
+} from "./endpoints/aircraft-registers";
 import { DEFAULT_BASE_URL } from "./constants";
 
 /**
