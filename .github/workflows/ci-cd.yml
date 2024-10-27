@@ -30,7 +30,7 @@ jobs:
             ${{ runner.OS }}-node-
             ${{ runner.OS }}-
       - name: Cache Node.js modules on Windows
-        uses: actions/cache@v2
+        uses: actions/cache@v4
         if: ${{ runner.OS == 'Windows' }}
         with:
           path: ~\AppData\Roaming\npm-cache
@@ -45,9 +45,15 @@ jobs:
   release:
     needs: test
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      issues: write
+      pull-requests: write
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - name: Use Node.js
         uses: actions/setup-node@v4
         with:
