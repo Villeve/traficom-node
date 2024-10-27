@@ -5,12 +5,24 @@ import prettierPlugin from "eslint-plugin-prettier";
 import prettierConfig from "eslint-config-prettier";
 
 export default [
-  { files: ["**/*.{js,mjs,cjs,ts}"], ignores: ["dist/**/*"] },
-  { languageOptions: { globals: globals.node } },
+  {
+    ignores: ["dist/**/*", "examples/**/*"],
+  },
+  {
+    files: ["**/*.{js,mjs,cjs,ts}"],
+    languageOptions: {
+      globals: {
+        ...globals.node,
+        ...globals.jest,
+      },
+    },
+  },
   pluginJs.configs.recommended,
   ...tseslint.configs.recommended,
   {
-    plugins: { prettier: prettierPlugin },
+    plugins: {
+      prettier: prettierPlugin,
+    },
     rules: {
       "prettier/prettier": "error",
     },

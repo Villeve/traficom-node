@@ -1,4 +1,4 @@
-import TraficomSDK from "../index";
+import TraficomSDK from "@/index";
 
 describe("tetra-mobile-network-codes Integration Tests", () => {
   let sdk: TraficomSDK;
@@ -23,6 +23,4 @@ describe("tetra-mobile-network-codes Integration Tests", () => {
       console.warn("No TETRA mobile network codes available for testing");
     }
   });
-
-  // Add more integration tests as needed
 });

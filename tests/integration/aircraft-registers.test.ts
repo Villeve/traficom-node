@@ -1,4 +1,4 @@
-import TraficomSDK from "../index";
+import TraficomSDK from "@/index";
 
 describe("aircraft-registers Integration Tests", () => {
   let sdk: TraficomSDK;
