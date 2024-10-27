@@ -1,3 +1,10 @@
+## [1.0.4](https://github.com/villeve/traficom-node/compare/v1.0.3...v1.0.4) (2024-10-27)
+
+
+### Bug Fixes
+
+* attempt-to-correct-npm-version ([923b931](https://github.com/villeve/traficom-node/commit/923b9313adb2fdc0e90832a9ee4b4723688f6f0b))
+
 ## [1.0.3](https://github.com/villeve/traficom-node/compare/v1.0.2...v1.0.3) (2024-10-27)
 
 
