@@ -1,21 +1,25 @@
 import { fetchJson, handleApiError } from "@/utils";
 import { TETRAMobileNetworkCode } from "./tetra-mobile-network-code.types";
 import { API_VERSION, TETRA_ENDPOINT } from "@/constants";
-import { CommonQueryParams, ExtendedQueryParams } from "@/types/api-params";
-import { ODataResponse, SingleEntityResponse } from "@/types/api-response";
+import {
+  MultiEntityResponse,
+  SingleEntityResponse,
+  CommonQueryParams,
+  ExtendedQueryParams,
+} from "@/types";
 
 /**
  * @public
  * Retrieves TETRA mobile network codes.
  * @param {string} baseUrl - The base URL for the Traficom API.
  * @param {ExtendedQueryParams} [params={}] - Optional parameters for the request.
- * @returns {Promise<ODataResponse<TETRAMobileNetworkCode>>} A promise that resolves to an object containing an array of TETRA mobile network codes, context, and optionally a count.
+ * @returns {Promise<MultiEntityResponse<TETRAMobileNetworkCode>>} A promise that resolves to an object containing an array of TETRA mobile network codes, context, and optionally a count.
  * @throws {TraficomError} If there's an error fetching the data.
  */
 export const getTETRAMobileNetworkCodes = async (
   baseUrl: string,
   params: ExtendedQueryParams = {},
-): Promise<ODataResponse<TETRAMobileNetworkCode>> => {
+): Promise<MultiEntityResponse<TETRAMobileNetworkCode>> => {
   const queryParams = new URLSearchParams(
     Object.entries(params).map(([key, value]) => [key, value.toString()]),
   ).toString();
