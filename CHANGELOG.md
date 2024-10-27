@@ -1,3 +1,10 @@
+## [1.0.5](https://github.com/villeve/traficom-node/compare/v1.0.4...v1.0.5) (2024-10-27)
+
+
+### Bug Fixes
+
+* force-release ([5461693](https://github.com/villeve/traficom-node/commit/5461693cdff51de5146b5f1328db346494a58b3e))
+
 ## [1.0.4](https://github.com/villeve/traficom-node/compare/v1.0.3...v1.0.4) (2024-10-27)
 
 
