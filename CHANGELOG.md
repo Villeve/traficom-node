@@ -1,3 +1,10 @@
+## [1.0.1](https://github.com/villeve/traficom-node/compare/v1.0.0...v1.0.1) (2024-10-27)
+
+
+### Bug Fixes
+
+* issues-with-semantic-release-setting-vnum ([2aa4920](https://github.com/villeve/traficom-node/commit/2aa4920eb6df40f10aaaf7c5a14da019fecac4ad))
+
 # 1.0.0 (2024-10-27)
 
 
