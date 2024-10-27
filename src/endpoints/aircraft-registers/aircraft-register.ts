@@ -1,7 +1,6 @@
 import { AircraftRegister } from ".";
-import { fetchJson } from "@/utils";
+import { fetchJson, handleApiError } from "@/utils";
 import { API_VERSION, AIRCRAFT_ENDPOINT } from "@/constants";
-import { handleApiError } from "@/utils";
 import { CommonQueryParams, ExtendedQueryParams } from "@/types/api-params";
 import { ODataResponse, SingleEntityResponse } from "@/types/api-response";
 
