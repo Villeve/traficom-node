@@ -1,3 +1,10 @@
+## [1.0.2](https://github.com/villeve/traficom-node/compare/v1.0.1...v1.0.2) (2024-10-27)
+
+
+### Bug Fixes
+
+* remove-duplicate-import ([#5](https://github.com/villeve/traficom-node/issues/5)) ([22743f1](https://github.com/villeve/traficom-node/commit/22743f1ac2f0ac5b29fcb6561697e1d478400f6e))
+
 ## [1.0.1](https://github.com/villeve/traficom-node/compare/v1.0.0...v1.0.1) (2024-10-27)
 
 
