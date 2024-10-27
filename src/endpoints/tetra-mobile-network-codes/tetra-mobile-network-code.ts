@@ -1,6 +1,5 @@
-import { fetchJson } from "@/utils";
+import { fetchJson, handleApiError } from "@/utils";
 import { TETRAMobileNetworkCode } from "./tetra-mobile-network-code.types";
-import { handleApiError } from "@/utils";
 import { API_VERSION, TETRA_ENDPOINT } from "@/constants";
 import { CommonQueryParams, ExtendedQueryParams } from "@/types/api-params";
 import { ODataResponse, SingleEntityResponse } from "@/types/api-response";
