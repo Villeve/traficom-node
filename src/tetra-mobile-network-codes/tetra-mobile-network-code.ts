@@ -7,6 +7,7 @@ import { handleFetchError } from "@/utils/error-handler";
 import { API_VERSION, TETRA_ENDPOINT } from "@/constants";
 
 /**
+ * @public
  * Retrieves TETRA mobile network codes.
  * @param {string} baseUrl - The base URL for the Traficom API.
  * @param {GetTETRAMobileNetworkCodesParams} [params={}] - Optional parameters for the request.
@@ -32,6 +33,7 @@ export const getTETRAMobileNetworkCodes = async (
 };
 
 /**
+ * @public
  * Retrieves a specific TETRA mobile network code by ID.
  * @param {string} baseUrl - The base URL for the Traficom API.
  * @param {number} id - The ID of the TETRA mobile network code to retrieve.

@@ -11,6 +11,7 @@ import {
 import { DEFAULT_BASE_URL } from "./constants";
 
 /**
+ * @public
  * TraficomSDK class for interacting with the Traficom API.
  * @class
  */
@@ -18,6 +19,7 @@ class TraficomSDK {
   private readonly baseUrl: string;
 
   /**
+   * @public
    * Creates an instance of TraficomSDK.
    * @param {string} [baseUrl] - The base URL for the Traficom API. If not provided, it uses the default URL from environment variables or a fallback value.
    */
@@ -26,6 +28,7 @@ class TraficomSDK {
   }
 
   /**
+   * @public
    * Retrieves TETRA mobile network codes.
    * @param {Parameters<typeof getTETRAMobileNetworkCodes>[1]} [params={}] - Optional parameters for the request.
    * @returns {Promise<{ value: TETRAMobileNetworkCode[] }>} A promise that resolves to an object containing an array of TETRA mobile network codes.
@@ -37,6 +40,7 @@ class TraficomSDK {
   }
 
   /**
+   * @public
    * Retrieves a specific TETRA mobile network code by ID.
    * @param {number} id - The ID of the TETRA mobile network code to retrieve.
    * @param {Parameters<typeof getTETRAMobileNetworkCodeById>[2]} [params={}] - Optional parameters for the request.
@@ -50,6 +54,7 @@ class TraficomSDK {
   }
 
   /**
+   * @public
    * Retrieves aircraft register data.
    * @param {Parameters<typeof getAircraftRegister>[1]} [params={}] - Optional parameters for the request.
    * @returns {Promise<{ value: AircraftRegister[] }>} A promise that resolves to an object containing an array of aircraft register data.
@@ -61,6 +66,7 @@ class TraficomSDK {
   }
 
   /**
+   * @public
    * Retrieves a specific aircraft register entry by ID.
    * @param {number} id - The ID of the aircraft register entry to retrieve.
    * @param {Parameters<typeof getAircraftRegisterById>[2]} [params={}] - Optional parameters for the request.

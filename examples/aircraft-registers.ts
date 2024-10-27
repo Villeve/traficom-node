@@ -1,5 +1,5 @@
 // @ts-nocheck
-import TraficomSDK from "traficom-node-sdk";
+import TraficomSDK from "traficom-node";
 
 const sdk = new TraficomSDK();
 

@@ -7,13 +7,13 @@ This is an open-source Node.js SDK for the Traficom API, providing easy access t
 Install the package using npm:
 
 ```bash
-npm install traficom-sdk
+npm install traficom-node
 ```
 
 Or using yarn:
 
 ```bash
-yarn add traficom-sdk
+yarn add traficom-node
 ```
 
 ## Usage
@@ -21,7 +21,7 @@ yarn add traficom-sdk
 First, import and initialize the TraficomSDK:
 
 ```typescript
-import TraficomSDK from "traficom-node-sdk";
+import TraficomSDK from "traficom-node";
 const sdk = new TraficomSDK();
 ```
 
@@ -94,4 +94,4 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 
 ## License
 
-This project is licensed under the ISC License.
+This project is licensed under the MIT License.
