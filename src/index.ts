@@ -9,6 +9,12 @@ import {
   AircraftRegister,
 } from "./endpoints/aircraft-registers";
 import { DEFAULT_BASE_URL } from "./constants";
+import {
+  getVehicleRegisterById,
+  getVehicleRegisters,
+  VehicleRegister,
+} from "./endpoints/vehicle-registers";
+import { MultiEntityResponse, SingleEntityResponse } from "./types";
 
 /**
  * @public
@@ -31,11 +37,11 @@ class TraficomSDK {
    * @public
    * Retrieves TETRA mobile network codes.
    * @param {Parameters<typeof getTETRAMobileNetworkCodes>[1]} [params={}] - Optional parameters for the request.
-   * @returns {Promise<{ value: TETRAMobileNetworkCode[] }>} A promise that resolves to an object containing an array of TETRA mobile network codes.
+   * @returns {Promise<MultiEntityResponse<TETRAMobileNetworkCode>>} A promise that resolves to an object containing an array of TETRA mobile network codes.
    */
   async getTETRAMobileNetworkCodes(
     params: Parameters<typeof getTETRAMobileNetworkCodes>[1] = {},
-  ): Promise<{ value: TETRAMobileNetworkCode[] }> {
+  ): Promise<MultiEntityResponse<TETRAMobileNetworkCode>> {
     return getTETRAMobileNetworkCodes(this.baseUrl, params);
   }
 
@@ -44,12 +50,12 @@ class TraficomSDK {
    * Retrieves a specific TETRA mobile network code by ID.
    * @param {number} id - The ID of the TETRA mobile network code to retrieve.
    * @param {Parameters<typeof getTETRAMobileNetworkCodeById>[2]} [params={}] - Optional parameters for the request.
-   * @returns {Promise<TETRAMobileNetworkCode>} A promise that resolves to a TETRA mobile network code object.
+   * @returns {Promise<SingleEntityResponse<TETRAMobileNetworkCode>>} A promise that resolves to a TETRA mobile network code object.
    */
   async getTETRAMobileNetworkCodeById(
     id: number,
     params: Parameters<typeof getTETRAMobileNetworkCodeById>[2] = {},
-  ): Promise<TETRAMobileNetworkCode> {
+  ): Promise<SingleEntityResponse<TETRAMobileNetworkCode>> {
     return getTETRAMobileNetworkCodeById(this.baseUrl, id, params);
   }
 
@@ -57,11 +63,11 @@ class TraficomSDK {
    * @public
    * Retrieves aircraft register data.
    * @param {Parameters<typeof getAircraftRegister>[1]} [params={}] - Optional parameters for the request.
-   * @returns {Promise<{ value: AircraftRegister[] }>} A promise that resolves to an object containing an array of aircraft register data.
+   * @returns {Promise<MultiEntityResponse<AircraftRegister>>} A promise that resolves to an object containing an array of aircraft register data.
    */
   async getAircraftRegister(
     params: Parameters<typeof getAircraftRegister>[1] = {},
-  ): Promise<{ value: AircraftRegister[] }> {
+  ): Promise<MultiEntityResponse<AircraftRegister>> {
     return getAircraftRegister(this.baseUrl, params);
   }
 
@@ -70,13 +76,39 @@ class TraficomSDK {
    * Retrieves a specific aircraft register entry by ID.
    * @param {number} id - The ID of the aircraft register entry to retrieve.
    * @param {Parameters<typeof getAircraftRegisterById>[2]} [params={}] - Optional parameters for the request.
-   * @returns {Promise<AircraftRegister>} A promise that resolves to an aircraft register object.
+   * @returns {Promise<SingleEntityResponse<AircraftRegister>>} A promise that resolves to an aircraft register object.
    */
   async getAircraftRegisterById(
     id: number,
     params: Parameters<typeof getAircraftRegisterById>[2] = {},
-  ): Promise<AircraftRegister> {
+  ): Promise<SingleEntityResponse<AircraftRegister>> {
     return getAircraftRegisterById(this.baseUrl, id, params);
+  }
+
+  /**
+   * @public
+   * Retrieves vehicle register data.
+   * @param {Parameters<typeof getVehicleRegisters>[1]} [params={}] - Optional parameters for the request.
+   * @returns {Promise<MultiEntityResponse<VehicleRegister>>} A promise that resolves to an object containing an array of vehicle register data.
+   */
+  async getVehicleRegisters(
+    params: Parameters<typeof getVehicleRegisters>[1] = {},
+  ): Promise<MultiEntityResponse<VehicleRegister>> {
+    return getVehicleRegisters(this.baseUrl, params);
+  }
+
+  /**
+   * @public
+   * Retrieves a specific vehicle register entry by ID.
+   * @param {number} id - The ID of the vehicle register entry to retrieve.
+   * @param {Parameters<typeof getVehicleRegisterById>[2]} [params={}] - Optional parameters for the request.
+   * @returns {Promise<SingleEntityResponse<VehicleRegister>>} A promise that resolves to a vehicle register object.
+   */
+  async getVehicleRegisterById(
+    id: number,
+    params: Parameters<typeof getVehicleRegisterById>[2] = {},
+  ): Promise<SingleEntityResponse<VehicleRegister>> {
+    return getVehicleRegisterById(this.baseUrl, id, params);
   }
 }
 
