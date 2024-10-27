@@ -1,3 +1,10 @@
+## [1.0.3](https://github.com/villeve/traficom-node/compare/v1.0.2...v1.0.3) (2024-10-27)
+
+
+### Bug Fixes
+
+* implement-vehicle-registers-endpoint ([#6](https://github.com/villeve/traficom-node/issues/6)) ([d655c4a](https://github.com/villeve/traficom-node/commit/d655c4aa9d3070a6ce958f05f5f18be16f191dec))
+
 ## [1.0.2](https://github.com/villeve/traficom-node/compare/v1.0.1...v1.0.2) (2024-10-27)
 
 
