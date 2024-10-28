@@ -30,6 +30,11 @@ import {
   getVehicleInformationSystemCodeById,
   VehicleInformationSystemCode,
 } from "./endpoints/vehicle-information-system-codes";
+import { Autoreporter } from "./endpoints/autoreporter/autoreporter.types";
+import {
+  getAutoreporterById,
+  getAutoreporters,
+} from "./endpoints/autoreporter/autoreporter";
 
 /**
  * Creates a Traficom API client for interacting with the Traficom API.
@@ -159,6 +164,30 @@ export const createClient = (baseUrl?: string) => {
       params: CommonQueryParams = {},
     ): Promise<SingleEntityResponse<VehicleInformationSystemCode>> => {
       return getVehicleInformationSystemCodeById(resolvedBaseUrl, id, params);
+    },
+
+    /**
+     * Retrieves a list of autoreporters
+     * @param {ExtendedQueryParams} [params={}] - Query parameters for filtering and pagination
+     * @returns {Promise<MultiEntityResponse<Autoreporter>>} Promise resolving to autoreporters response
+     */
+    getAutoreporters: (
+      params: ExtendedQueryParams = {},
+    ): Promise<MultiEntityResponse<Autoreporter>> => {
+      return getAutoreporters(resolvedBaseUrl, params);
+    },
+
+    /**
+     * Retrieves a specific autoreporter by ID
+     * @param {number} id - The ID of the autoreporter
+     * @param {CommonQueryParams} [params={}] - Common query parameters
+     * @returns {Promise<SingleEntityResponse<Autoreporter>>} Promise resolving to a single autoreporter
+     */
+    getAutoreporterById: (
+      id: number,
+      params: CommonQueryParams = {},
+    ): Promise<SingleEntityResponse<Autoreporter>> => {
+      return getAutoreporterById(resolvedBaseUrl, id, params);
     },
   };
 };
