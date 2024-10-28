@@ -1,3 +1,10 @@
+## [1.0.6](https://github.com/villeve/traficom-node/compare/v1.0.5...v1.0.6) (2024-10-27)
+
+
+### Bug Fixes
+
+* remove-extra-ci-cd-step ([64f7269](https://github.com/villeve/traficom-node/commit/64f7269e9ad3ff08ad6a30103aa9d26ba3a0d559))
+
 ## [1.0.5](https://github.com/villeve/traficom-node/compare/v1.0.4...v1.0.5) (2024-10-27)
 
 
