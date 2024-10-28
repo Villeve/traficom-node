@@ -1,4 +1,4 @@
-import { AircraftRegister } from ".";
+import { AircraftRegister } from "./aircraft-register.types";
 import { fetchJson, handleApiError } from "@/utils";
 import { API_VERSION, AIRCRAFT_ENDPOINT } from "@/constants";
 import {

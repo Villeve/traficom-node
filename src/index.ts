@@ -14,102 +14,78 @@ import {
   getVehicleRegisters,
   VehicleRegister,
 } from "./endpoints/vehicle-registers";
-import { MultiEntityResponse, SingleEntityResponse } from "./types";
+import {
+  CommonQueryParams,
+  ExtendedQueryParams,
+  MultiEntityResponse,
+  SingleEntityResponse,
+} from "./types";
+import {
+  getShipRegisterById,
+  getShipRegisters,
+  ShipRegister,
+} from "./endpoints/ship-registers";
 
 /**
  * @public
- * TraficomSDK class for interacting with the Traficom API.
- * @class
+ * Creates a Traficom API client for interacting with the Traficom API.
+ * @param {string} [baseUrl] - The base URL for the Traficom API. If not provided, it uses the default URL from environment variables or a fallback value.
  */
-class TraficomSDK {
-  private readonly baseUrl: string;
+export const createClient = (baseUrl?: string) => {
+  const resolvedBaseUrl =
+    baseUrl ?? process.env.TRAFICOM_API_URL ?? DEFAULT_BASE_URL;
 
-  /**
-   * @public
-   * Creates an instance of TraficomSDK.
-   * @param {string} [baseUrl] - The base URL for the Traficom API. If not provided, it uses the default URL from environment variables or a fallback value.
-   */
-  constructor(baseUrl?: string) {
-    this.baseUrl = baseUrl ?? process.env.TRAFICOM_API_URL ?? DEFAULT_BASE_URL;
-  }
+  return {
+    getTETRAMobileNetworkCodes: (
+      params: ExtendedQueryParams = {},
+    ): Promise<MultiEntityResponse<TETRAMobileNetworkCode>> => {
+      return getTETRAMobileNetworkCodes(resolvedBaseUrl, params);
+    },
 
-  /**
-   * @public
-   * Retrieves TETRA mobile network codes.
-   * @param {Parameters<typeof getTETRAMobileNetworkCodes>[1]} [params={}] - Optional parameters for the request.
-   * @returns {Promise<MultiEntityResponse<TETRAMobileNetworkCode>>} A promise that resolves to an object containing an array of TETRA mobile network codes.
-   */
-  async getTETRAMobileNetworkCodes(
-    params: Parameters<typeof getTETRAMobileNetworkCodes>[1] = {},
-  ): Promise<MultiEntityResponse<TETRAMobileNetworkCode>> {
-    return getTETRAMobileNetworkCodes(this.baseUrl, params);
-  }
+    getTETRAMobileNetworkCodeById: (
+      id: number,
+      params: CommonQueryParams = {},
+    ): Promise<SingleEntityResponse<TETRAMobileNetworkCode>> => {
+      return getTETRAMobileNetworkCodeById(resolvedBaseUrl, id, params);
+    },
 
-  /**
-   * @public
-   * Retrieves a specific TETRA mobile network code by ID.
-   * @param {number} id - The ID of the TETRA mobile network code to retrieve.
-   * @param {Parameters<typeof getTETRAMobileNetworkCodeById>[2]} [params={}] - Optional parameters for the request.
-   * @returns {Promise<SingleEntityResponse<TETRAMobileNetworkCode>>} A promise that resolves to a TETRA mobile network code object.
-   */
-  async getTETRAMobileNetworkCodeById(
-    id: number,
-    params: Parameters<typeof getTETRAMobileNetworkCodeById>[2] = {},
-  ): Promise<SingleEntityResponse<TETRAMobileNetworkCode>> {
-    return getTETRAMobileNetworkCodeById(this.baseUrl, id, params);
-  }
+    getAircraftRegister: (
+      params: ExtendedQueryParams = {},
+    ): Promise<MultiEntityResponse<AircraftRegister>> => {
+      return getAircraftRegister(resolvedBaseUrl, params);
+    },
 
-  /**
-   * @public
-   * Retrieves aircraft register data.
-   * @param {Parameters<typeof getAircraftRegister>[1]} [params={}] - Optional parameters for the request.
-   * @returns {Promise<MultiEntityResponse<AircraftRegister>>} A promise that resolves to an object containing an array of aircraft register data.
-   */
-  async getAircraftRegister(
-    params: Parameters<typeof getAircraftRegister>[1] = {},
-  ): Promise<MultiEntityResponse<AircraftRegister>> {
-    return getAircraftRegister(this.baseUrl, params);
-  }
+    getAircraftRegisterById: (
+      id: number,
+      params: CommonQueryParams = {},
+    ): Promise<SingleEntityResponse<AircraftRegister>> => {
+      return getAircraftRegisterById(resolvedBaseUrl, id, params);
+    },
 
-  /**
-   * @public
-   * Retrieves a specific aircraft register entry by ID.
-   * @param {number} id - The ID of the aircraft register entry to retrieve.
-   * @param {Parameters<typeof getAircraftRegisterById>[2]} [params={}] - Optional parameters for the request.
-   * @returns {Promise<SingleEntityResponse<AircraftRegister>>} A promise that resolves to an aircraft register object.
-   */
-  async getAircraftRegisterById(
-    id: number,
-    params: Parameters<typeof getAircraftRegisterById>[2] = {},
-  ): Promise<SingleEntityResponse<AircraftRegister>> {
-    return getAircraftRegisterById(this.baseUrl, id, params);
-  }
+    getVehicleRegisters: (
+      params: ExtendedQueryParams = {},
+    ): Promise<MultiEntityResponse<VehicleRegister>> => {
+      return getVehicleRegisters(resolvedBaseUrl, params);
+    },
 
-  /**
-   * @public
-   * Retrieves vehicle register data.
-   * @param {Parameters<typeof getVehicleRegisters>[1]} [params={}] - Optional parameters for the request.
-   * @returns {Promise<MultiEntityResponse<VehicleRegister>>} A promise that resolves to an object containing an array of vehicle register data.
-   */
-  async getVehicleRegisters(
-    params: Parameters<typeof getVehicleRegisters>[1] = {},
-  ): Promise<MultiEntityResponse<VehicleRegister>> {
-    return getVehicleRegisters(this.baseUrl, params);
-  }
+    getVehicleRegisterById: (
+      id: number,
+      params: CommonQueryParams = {},
+    ): Promise<SingleEntityResponse<VehicleRegister>> => {
+      return getVehicleRegisterById(resolvedBaseUrl, id, params);
+    },
 
-  /**
-   * @public
-   * Retrieves a specific vehicle register entry by ID.
-   * @param {number} id - The ID of the vehicle register entry to retrieve.
-   * @param {Parameters<typeof getVehicleRegisterById>[2]} [params={}] - Optional parameters for the request.
-   * @returns {Promise<SingleEntityResponse<VehicleRegister>>} A promise that resolves to a vehicle register object.
-   */
-  async getVehicleRegisterById(
-    id: number,
-    params: Parameters<typeof getVehicleRegisterById>[2] = {},
-  ): Promise<SingleEntityResponse<VehicleRegister>> {
-    return getVehicleRegisterById(this.baseUrl, id, params);
-  }
-}
+    getShipRegisters: (
+      params: ExtendedQueryParams = {},
+    ): Promise<MultiEntityResponse<ShipRegister>> => {
+      return getShipRegisters(resolvedBaseUrl, params);
+    },
 
-export default TraficomSDK;
+    getShipRegisterById: (
+      id: number,
+      params: CommonQueryParams = {},
+    ): Promise<SingleEntityResponse<ShipRegister>> => {
+      return getShipRegisterById(resolvedBaseUrl, id, params);
+    },
+  };
+};

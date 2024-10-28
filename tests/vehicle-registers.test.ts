@@ -1,16 +1,16 @@
 import { TraficomError } from "@/classes/errors";
-import TraficomSDK from "@/index";
+import { createClient } from "@/index";
 
 describe("Vehicle Register Integration Tests", () => {
-  let sdk: TraficomSDK;
+  let client: ReturnType<typeof createClient>;
 
   beforeAll(() => {
-    sdk = new TraficomSDK();
+    client = createClient();
   });
 
   describe("getVehicleRegisters", () => {
     it("should fetch vehicle registers successfully", async () => {
-      const response = await sdk.getVehicleRegisters();
+      const response = await client.getVehicleRegisters();
 
       expect(response).toBeDefined();
       expect(response["@odata.context"]).toBeDefined();
@@ -32,7 +32,7 @@ describe("Vehicle Register Integration Tests", () => {
         $orderby: "ID desc",
       };
 
-      const response = await sdk.getVehicleRegisters(params);
+      const response = await client.getVehicleRegisters(params);
 
       expect(response.value.length).toBeLessThanOrEqual(5);
       expect(Object.keys(response.value[0])).toEqual(
@@ -46,7 +46,7 @@ describe("Vehicle Register Integration Tests", () => {
         $top: 3,
       };
 
-      const response = await sdk.getVehicleRegisters(params);
+      const response = await client.getVehicleRegisters(params);
 
       expect(response.value.length).toBeGreaterThan(0);
       response.value.forEach((vehicle) => {
@@ -60,12 +60,12 @@ describe("Vehicle Register Integration Tests", () => {
 
     beforeAll(async () => {
       // Get a valid ID from the list endpoint
-      const response = await sdk.getVehicleRegisters({ $top: 1 });
+      const response = await client.getVehicleRegisters({ $top: 1 });
       validVehicleId = response.value[0].ID;
     });
 
     it("should fetch a single vehicle register by ID", async () => {
-      const response = await sdk.getVehicleRegisterById(validVehicleId);
+      const response = await client.getVehicleRegisterById(validVehicleId);
 
       expect(response).toBeDefined();
       expect(response["@odata.context"]).toBeDefined();
@@ -79,7 +79,10 @@ describe("Vehicle Register Integration Tests", () => {
         $select: "ID,merkkiSelvakielinen,mallimerkinta",
       };
 
-      const response = await sdk.getVehicleRegisterById(validVehicleId, params);
+      const response = await client.getVehicleRegisterById(
+        validVehicleId,
+        params,
+      );
 
       const responseKeys = Object.keys(response);
       expect(responseKeys).toEqual(
@@ -89,14 +92,14 @@ describe("Vehicle Register Integration Tests", () => {
     });
 
     it("should throw TraficomError for non-existent ID", async () => {
-      await expect(sdk.getVehicleRegisterById(999999999)).rejects.toThrow(
+      await expect(client.getVehicleRegisterById(999999999)).rejects.toThrow(
         TraficomError,
       );
     });
 
     it("should throw TraficomError for invalid ID format", async () => {
       // @ts-expect-error Testing invalid input
-      await expect(sdk.getVehicleRegisterById("invalid")).rejects.toThrow(
+      await expect(client.getVehicleRegisterById("invalid")).rejects.toThrow(
         TraficomError,
       );
     });

@@ -1,16 +1,16 @@
 // @ts-nocheck
-import TraficomSDK from "traficom-node";
+import { createClient } from "traficom-node";
 
-const sdk = new TraficomSDK();
+const client = createClient();
 
 async function fetchTETRAMobileNetworkCodes() {
   try {
     // Fetch all TETRA mobile network codes
-    const allCodes = await sdk.getTETRAMobileNetworkCodes();
+    const allCodes = await client.getTETRAMobileNetworkCodes();
     console.log("All TETRA Mobile Network Codes:", allCodes);
 
     // Fetch TETRA mobile network codes with custom parameters
-    const filteredCodes = await sdk.getTETRAMobileNetworkCodes({
+    const filteredCodes = await client.getTETRAMobileNetworkCodes({
       $top: 5,
       $orderby: "Number desc",
     });
@@ -19,7 +19,7 @@ async function fetchTETRAMobileNetworkCodes() {
     // Fetch a specific TETRA mobile network code by ID
     if (allCodes.value.length > 0) {
       const firstId = allCodes.value[0].ID;
-      const singleCode = await sdk.getTETRAMobileNetworkCodeById(firstId);
+      const singleCode = await client.getTETRAMobileNetworkCodeById(firstId);
       console.log("Single TETRA Mobile Network Code:", singleCode);
     }
   } catch (error) {

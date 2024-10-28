@@ -3,3 +3,4 @@ export const API_VERSION = "v13";
 export const TETRA_ENDPOINT = "_T_MNC_tunnukset";
 export const AIRCRAFT_ENDPOINT = "AircraftRegister";
 export const VEHICLE_ENDPOINT = "AjoneuvorekisteriVer2";
+export const SHIP_ENDPOINT = "Alusrekisteri";
