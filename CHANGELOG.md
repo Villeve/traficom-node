@@ -1,3 +1,10 @@
+## [1.0.7](https://github.com/villeve/traficom-node/compare/v1.0.6...v1.0.7) (2024-10-28)
+
+
+### Bug Fixes
+
+* add-ship-register-endpoints ([77dd05d](https://github.com/villeve/traficom-node/commit/77dd05d31980cbb6f40c74ad720cb835ddafe987))
+
 ## [1.0.6](https://github.com/villeve/traficom-node/compare/v1.0.5...v1.0.6) (2024-10-27)
 
 
