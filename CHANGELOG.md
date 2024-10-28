@@ -1,3 +1,11 @@
+## [1.0.8](https://github.com/villeve/traficom-node/compare/v1.0.7...v1.0.8) (2024-10-28)
+
+
+### Bug Fixes
+
+* implement-autoreporter-endpoints ([96ad112](https://github.com/villeve/traficom-node/commit/96ad1126cad59ec2bbc21dbccae2a81c8f80284d))
+* implement-vehicle-information-system-codes-endpoints ([d12c684](https://github.com/villeve/traficom-node/commit/d12c684f73ec1faee5c46a8757f53fa878d85c18))
+
 ## [1.0.7](https://github.com/villeve/traficom-node/compare/v1.0.6...v1.0.7) (2024-10-28)
 
 
