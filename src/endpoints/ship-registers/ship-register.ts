@@ -9,7 +9,6 @@ import {
 } from "@/types";
 
 /**
- * @public
  * Retrieves all ship register entries.
  * @param {string} baseUrl - The base URL for the Traficom API.
  * @param {{ $expand?: string; $select?: string; $filter?: string; $orderby?: string; $top?: number; $skip?: number; $count?: boolean }} [params={}] - Optional parameters for the request.
@@ -33,7 +32,6 @@ export const getShipRegisters = async (
 };
 
 /**
- * @public
  * Retrieves a specific ship register entry by ID.
  * @param {string} baseUrl - The base URL for the Traficom API.
  * @param {number} id - The ID of the ship register entry to retrieve.

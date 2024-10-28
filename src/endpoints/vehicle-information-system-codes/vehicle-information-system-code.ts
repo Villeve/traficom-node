@@ -1,5 +1,8 @@
-import { API_VERSION, VEHICLE_ENDPOINT } from "@/constants";
-import { VehicleRegister } from "./vehicle-register.types";
+import {
+  API_VERSION,
+  VEHICLE_INFORMATION_SYSTEM_CODE_ENDPOINT,
+} from "@/constants";
+import { VehicleInformationSystemCode } from "./vehicle-information-system-code.types";
 import { fetchJson } from "@/utils/fetch-json";
 import { handleApiError } from "@/utils/error-handler";
 import {
@@ -10,20 +13,20 @@ import {
 } from "@/types";
 
 /**
- * Retrieves all vehicle register entries.
+ * Retrieves all vehicle information system codes.
  * @param {string} baseUrl - The base URL for the Traficom API.
  * @param {{ $expand?: string; $select?: string; $filter?: string; $orderby?: string; $top?: number; $skip?: number; $count?: boolean }} [params={}] - Optional parameters for the request.
- * @returns {Promise<MultiEntityResponse<VehicleRegister>>} A promise that resolves to an object containing the vehicle register data and the OData context.
+ * @returns {Promise<MultiEntityResponse<VehicleInformationSystemCode>>} A promise that resolves to an object containing the codes data and the OData context.
  * @throws {TraficomError} If there's an error fetching the data.
  */
-export const getVehicleRegisters = async (
+export const getVehicleInformationSystemCodes = async (
   baseUrl: string,
   params: ExtendedQueryParams = {},
-): Promise<MultiEntityResponse<VehicleRegister>> => {
+): Promise<MultiEntityResponse<VehicleInformationSystemCode>> => {
   const queryParams = new URLSearchParams(
     Object.entries(params).map(([key, value]) => [key, value.toString()]),
   ).toString();
-  const endpoint = `${baseUrl}/api/${API_VERSION}/${VEHICLE_ENDPOINT}`;
+  const endpoint = `${baseUrl}/api/${API_VERSION}/${VEHICLE_INFORMATION_SYSTEM_CODE_ENDPOINT}`;
   const url = queryParams ? `${endpoint}?${queryParams}` : endpoint;
   try {
     return await fetchJson(url);
@@ -33,22 +36,22 @@ export const getVehicleRegisters = async (
 };
 
 /**
- * Retrieves a specific vehicle register entry by ID.
+ * Retrieves a specific vehicle information system code by ID.
  * @param {string} baseUrl - The base URL for the Traficom API.
- * @param {number} id - The ID of the vehicle register entry to retrieve.
+ * @param {number} id - The ID of the code to retrieve.
  * @param {{ $expand?: string; $select?: string }} [params={}] - Optional parameters for the request.
- * @returns {Promise<SingleEntityResponse<VehicleRegister>>} A promise that resolves to an object containing the vehicle register data and the OData context.
+ * @returns {Promise<SingleEntityResponse<VehicleInformationSystemCode>>} A promise that resolves to an object containing the code data and the OData context.
  * @throws {TraficomError} If there's an error fetching the data.
  */
-export const getVehicleRegisterById = async (
+export const getVehicleInformationSystemCodeById = async (
   baseUrl: string,
   id: number,
   params: CommonQueryParams = {},
-): Promise<SingleEntityResponse<VehicleRegister>> => {
+): Promise<SingleEntityResponse<VehicleInformationSystemCode>> => {
   const queryParams = new URLSearchParams(
     Object.entries(params).map(([key, value]) => [key, value.toString()]),
   ).toString();
-  const endpoint = `${baseUrl}/api/${API_VERSION}/${VEHICLE_ENDPOINT}(${id})`;
+  const endpoint = `${baseUrl}/api/${API_VERSION}/${VEHICLE_INFORMATION_SYSTEM_CODE_ENDPOINT}(${id})`;
   const url = queryParams ? `${endpoint}?${queryParams}` : endpoint;
   try {
     return await fetchJson(url);

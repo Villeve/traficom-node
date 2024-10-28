@@ -9,7 +9,6 @@ import {
 } from "@/types";
 
 /**
- * @public
  * Retrieves aircraft register data.
  * @param {string} baseUrl - The base URL for the Traficom API.
  * @param {{ $expand?: string; $filter?: string; $select?: string; $orderby?: string; $top?: number; $skip?: number; $count?: boolean }} [params={}] - Optional parameters for the request.
@@ -33,7 +32,6 @@ export const getAircraftRegister = async (
 };
 
 /**
- * @public
  * Retrieves a specific aircraft register entry by ID.
  * @param {string} baseUrl - The base URL for the Traficom API.
  * @param {number} id - The ID of the aircraft register entry to retrieve.
