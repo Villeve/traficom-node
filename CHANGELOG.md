@@ -1,3 +1,10 @@
+## [1.0.10](https://github.com/villeve/traficom-node/compare/v1.0.9...v1.0.10) (2024-10-29)
+
+
+### Bug Fixes
+
+* radio-and-network-endpoints ([1567b9d](https://github.com/villeve/traficom-node/commit/1567b9dd1143c25d1be6d109167f62ba077dc198))
+
 ## [1.0.9](https://github.com/villeve/traficom-node/compare/v1.0.8...v1.0.9) (2024-10-29)
 
 
