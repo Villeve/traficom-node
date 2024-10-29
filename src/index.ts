@@ -30,11 +30,39 @@ import {
   getVehicleInformationSystemCodeById,
   VehicleInformationSystemCode,
 } from "./endpoints/vehicle-information-system-codes";
-import { Autoreporter } from "./endpoints/autoreporter/autoreporter.types";
 import {
   getAutoreporterById,
   getAutoreporters,
-} from "./endpoints/autoreporter/autoreporter";
+  Autoreporter,
+} from "./endpoints/autoreporter";
+import {
+  AutoreporterUTC,
+  getAutoreporterUTCById,
+  getAutoreporterUTCs,
+} from "./endpoints/autoreporter-utc";
+import { getInfomapById, getInfomaps, Infomap } from "./endpoints/infomaps";
+import {
+  getInternationalTelecomOperatorIds,
+  getInternationalTelecomOperatorIdById,
+  InternationalTelecomOperatorId,
+} from "./endpoints/international-telecom-operator-ids";
+import {
+  getLandlineTelephoneNetworkSubscriberNumberById,
+  getLandlineTelephoneNetworkSubscriberNumbers,
+  LandlineTelephoneNetworkSubscriberNumber,
+} from "./endpoints/landline-telephone-network-subscriber-numbers";
+import {
+  getFixedNetworkMunicipalitySpecificAvailability,
+  FixedNetworkMunicipalitySpecificAvailability,
+} from "./endpoints/fixed-network-municipality-specific-availability";
+import {
+  FixedNetworkProvinceSpecificAvailability,
+  getFixedNetworkProvinceSpecificAvailability,
+} from "./endpoints/fixed-network-province-specific-availability";
+import { BroadbandProject } from "./endpoints/broadband-projects/broadband-projects.types";
+import { getBroadbandProjects } from "./endpoints/broadband-projects/broadband-projects";
+import { ShortMessageServiceNumber } from "./endpoints/short-message-service-numbers/short-message-service-numbers.types";
+import { getShortMessageServiceNumbers } from "./endpoints/short-message-service-numbers";
 
 /**
  * Creates a Traficom API client for interacting with the Traficom API.
@@ -188,6 +216,167 @@ export const createClient = (baseUrl?: string) => {
       params: CommonQueryParams = {},
     ): Promise<SingleEntityResponse<Autoreporter>> => {
       return getAutoreporterById(resolvedBaseUrl, id, params);
+    },
+
+    /**
+     * Retrieves a list of autoreporter UTCs
+     * @param {ExtendedQueryParams} [params={}] - Query parameters for filtering and pagination
+     * @returns {Promise<MultiEntityResponse<AutoreporterUTC>>} Promise resolving to autoreporter UTCs response
+     */
+    getAutoreporterUTCs: (
+      params: ExtendedQueryParams = {},
+    ): Promise<MultiEntityResponse<AutoreporterUTC>> => {
+      return getAutoreporterUTCs(resolvedBaseUrl, params);
+    },
+
+    /**
+     * Retrieves a specific autoreporter UTC by ID
+     * @param {number} id - The ID of the autoreporter UTC
+     * @param {CommonQueryParams} [params={}] - Common query parameters
+     * @returns {Promise<SingleEntityResponse<AutoreporterUTC>>} Promise resolving to a single autoreporter UTC
+     */
+    getAutoreporterUTCById: (
+      id: number,
+      params: CommonQueryParams = {},
+    ): Promise<SingleEntityResponse<AutoreporterUTC>> => {
+      return getAutoreporterUTCById(resolvedBaseUrl, id, params);
+    },
+
+    /**
+     * Retrieves a list of infomaps
+     * @param {ExtendedQueryParams} [params={}] - Query parameters for filtering and pagination
+     * @returns {Promise<MultiEntityResponse<Infomap>>} Promise resolving to infomaps response
+     */
+    getInfomaps: (
+      params: ExtendedQueryParams = {},
+    ): Promise<MultiEntityResponse<Infomap>> => {
+      return getInfomaps(resolvedBaseUrl, params);
+    },
+
+    /**
+     * Retrieves a specific infomap by ID
+     * @param {number} id - The ID of the infomap
+     * @param {CommonQueryParams} [params={}] - Common query parameters
+     * @returns {Promise<SingleEntityResponse<Infomap>>} Promise resolving to a single infomap
+     */
+    getInfomapById: (
+      id: number,
+      params: CommonQueryParams = {},
+    ): Promise<SingleEntityResponse<Infomap>> => {
+      return getInfomapById(resolvedBaseUrl, id, params);
+    },
+
+    /**
+     * Retrieves a list of international telecommunications operator IDs
+     * @param {ExtendedQueryParams} [params={}] - Query parameters for filtering and pagination
+     * @returns {Promise<MultiEntityResponse<InternationalTelecomOperatorId>>} Promise resolving to international telecommunications operator IDs response
+     */
+    getInternationalTelecomOperatorIds: (
+      params: ExtendedQueryParams = {},
+    ): Promise<MultiEntityResponse<InternationalTelecomOperatorId>> => {
+      return getInternationalTelecomOperatorIds(resolvedBaseUrl, params);
+    },
+
+    /**
+     * Retrieves a specific international telecommunications operator ID by ID
+     * @param {number} id - The ID of the international telecom operator ID
+     * @param {CommonQueryParams} [params={}] - Common query parameters
+     * @returns {Promise<SingleEntityResponse<InternationalTelecomOperatorId>>} Promise resolving to a single international telecommunications operator ID
+     */
+    getInternationalTelecomOperatorIdById: (
+      id: number,
+      params: CommonQueryParams = {},
+    ): Promise<SingleEntityResponse<InternationalTelecomOperatorId>> => {
+      return getInternationalTelecomOperatorIdById(resolvedBaseUrl, id, params);
+    },
+
+    /**
+     * Retrieves a list of landline telephone network subscriber numbers
+     * @param {ExtendedQueryParams} [params={}] - Query parameters for filtering and pagination
+     * @returns {Promise<MultiEntityResponse<LandlineTelephoneNetworkSubscriberNumber>>} Promise resolving to landline telephone network subscriber numbers response
+     */
+    getLandlineTelephoneNetworkSubscriberNumbers: (
+      params: ExtendedQueryParams = {},
+    ): Promise<
+      MultiEntityResponse<LandlineTelephoneNetworkSubscriberNumber>
+    > => {
+      return getLandlineTelephoneNetworkSubscriberNumbers(
+        resolvedBaseUrl,
+        params,
+      );
+    },
+
+    /**
+     * Retrieves a specific landline telephone network subscriber number by ID
+     * @param {number} id - The ID of the landline telephone network subscriber number
+     * @param {CommonQueryParams} [params={}] - Common query parameters
+     * @returns {Promise<SingleEntityResponse<LandlineTelephoneNetworkSubscriberNumber>>} Promise resolving to a single landline telephone network subscriber number
+     */
+    getLandlineTelephoneNetworkSubscriberNumberById: (
+      id: number,
+      params: CommonQueryParams = {},
+    ): Promise<
+      SingleEntityResponse<LandlineTelephoneNetworkSubscriberNumber>
+    > => {
+      return getLandlineTelephoneNetworkSubscriberNumberById(
+        resolvedBaseUrl,
+        id,
+        params,
+      );
+    },
+
+    /**
+     * Retrieves a list of fixed network municipality-specific availability entries
+     * @param {ExtendedQueryParams} [params={}] - Query parameters for filtering and pagination
+     * @returns {Promise<MultiEntityResponse<FixedNetworkMunicipalitySpecificAvailability>>} Promise resolving to availability entries response
+     */
+    getFixedNetworkMunicipalitySpecificAvailability: (
+      params: ExtendedQueryParams = {},
+    ): Promise<
+      MultiEntityResponse<FixedNetworkMunicipalitySpecificAvailability>
+    > => {
+      return getFixedNetworkMunicipalitySpecificAvailability(
+        resolvedBaseUrl,
+        params,
+      );
+    },
+
+    /**
+     * Retrieves a list of fixed network province-specific availability entries
+     * @param {ExtendedQueryParams} [params={}] - Query parameters for filtering and pagination
+     * @returns {Promise<MultiEntityResponse<FixedNetworkProvinceSpecificAvailability>>} Promise resolving to availability entries response
+     */
+    getFixedNetworkProvinceSpecificAvailability: (
+      params: ExtendedQueryParams = {},
+    ): Promise<
+      MultiEntityResponse<FixedNetworkProvinceSpecificAvailability>
+    > => {
+      return getFixedNetworkProvinceSpecificAvailability(
+        resolvedBaseUrl,
+        params,
+      );
+    },
+
+    /**
+     * Retrieves a list of broadband projects
+     * @param {ExtendedQueryParams} [params={}] - Query parameters for filtering and pagination
+     * @returns {Promise<MultiEntityResponse<BroadbandProject>>} Promise resolving to broadband projects response
+     */
+    getBroadbandProjects: (
+      params: ExtendedQueryParams = {},
+    ): Promise<MultiEntityResponse<BroadbandProject>> => {
+      return getBroadbandProjects(resolvedBaseUrl, params);
+    },
+
+    /**
+     * Retrieves a list of short message service numbers
+     * @param {ExtendedQueryParams} [params={}] - Query parameters for filtering and pagination
+     * @returns {Promise<MultiEntityResponse<ShortMessageServiceNumber>>} Promise resolving to short message service numbers response
+     */
+    getShortMessageServiceNumbers: (
+      params: ExtendedQueryParams = {},
+    ): Promise<MultiEntityResponse<ShortMessageServiceNumber>> => {
+      return getShortMessageServiceNumbers(resolvedBaseUrl, params);
     },
   };
 };
