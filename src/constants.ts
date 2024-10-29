@@ -19,3 +19,15 @@ export const FIXED_NETWORK_PROVINCE_SPECIFIC_AVAILABILITY_ENDPOINT =
 export const BROADBAND_PROJECTS_ENDPOINT = "Laajakaistahankkeet";
 export const SHORT_MESSAGE_SERVICE_NUMBERS_ENDPOINT =
   "Lyhytsanomapalvelunumerot";
+export const MOBILE_COMMUNICATION_NETWORK_AREA_CODES_ENDPOINT =
+  "MatkaviestinverkkojenSuuntanumerot";
+export const MOBILE_COMMUNICATION_NETWORK_MUNICIPALITY_SPECIFIC_AVAILABILITY_ENDPOINT =
+  "MatkaviestinverkonKuntakohtainenSaatavuusVer2";
+export const MOBILE_COMMUNICATION_NETWORK_PROVINCE_SPECIFIC_AVAILABILITY_ENDPOINT =
+  "MatkaviestinverkonMaakuntakohtainenSaatavuusVer2";
+export const MARINE_RADIO_NUMBERS_ENDPOINT = "Meriradionumerot";
+export const MOBILE_NETWORK_CODES_ENDPOINT = "MNC_tunnukset";
+export const RADIO_AMATEUR_CALL_SIGNS_ENDPOINT = "RadioamatoorienKutsumerkit";
+export const RADIO_STATION_INFORMATION_ENDPOINT = "Radioasematiedot";
+export const FREE_RADIO_MICROPHONE_FREQUENCIES_ENDPOINT =
+  "RadiomikrofonitVapaatTaajuudet";

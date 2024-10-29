@@ -63,6 +63,46 @@ import { BroadbandProject } from "./endpoints/broadband-projects/broadband-proje
 import { getBroadbandProjects } from "./endpoints/broadband-projects/broadband-projects";
 import { ShortMessageServiceNumber } from "./endpoints/short-message-service-numbers/short-message-service-numbers.types";
 import { getShortMessageServiceNumbers } from "./endpoints/short-message-service-numbers";
+import {
+  getMobileCommunicationNetworkAreaCodes,
+  getMobileCommunicationNetworkAreaCodeById,
+  MobileCommunicationNetworkAreaCode,
+} from "./endpoints/mobile-communication-network-area-codes";
+import {
+  getMobileCommunicationNetworkMunicipalitySpecificAvailability,
+  getMobileCommunicationNetworkMunicipalitySpecificAvailabilityById,
+  MobileCommunicationNetworkMunicipalitySpecificAvailability,
+} from "./endpoints/mobile-communication-network-municipality-specific-availability";
+import {
+  getMobileCommunicationNetworkProvinceSpecificAvailability,
+  getMobileCommunicationNetworkProvinceSpecificAvailabilityById,
+  MobileCommunicationNetworkProvinceSpecificAvailability,
+} from "./endpoints/mobile-communication-network-province-specific-availability";
+import {
+  getMarineRadioNumbers,
+  getMarineRadioNumberById,
+  MarineRadioNumber,
+} from "./endpoints/marine-radio-numbers";
+import {
+  getMobileNetworkCodeById,
+  getMobileNetworkCodes,
+  MobileNetworkCode,
+} from "./endpoints/mobile-network-codes";
+import {
+  getRadioAmateurCallSignById,
+  getRadioAmateurCallSigns,
+  RadioAmateurCallSign,
+} from "./endpoints/radio-amateur-call-signs";
+import {
+  getRadioStationInformation,
+  getRadioStationInformationById,
+  RadioStationInformation,
+} from "./endpoints/radio-station-information";
+import {
+  FreeRadioMicrophoneFrequency,
+  FreeRadioMicrophoneFrequencyParams,
+  getFreeRadioMicrophoneFrequencies,
+} from "./endpoints/free-radio-microphone-frequencies";
 
 /**
  * Creates a Traficom API client for interacting with the Traficom API.
@@ -377,6 +417,211 @@ export const createClient = (baseUrl?: string) => {
       params: ExtendedQueryParams = {},
     ): Promise<MultiEntityResponse<ShortMessageServiceNumber>> => {
       return getShortMessageServiceNumbers(resolvedBaseUrl, params);
+    },
+
+    /**
+     * Retrieves a list of mobile communication network area codes
+     * @param {ExtendedQueryParams} [params={}] - Query parameters for filtering and pagination
+     * @returns {Promise<MultiEntityResponse<MobileCommunicationNetworkAreaCode>>} Promise resolving to mobile communication network area codes response
+     */
+    getMobileCommunicationNetworkAreaCodes: (
+      params: ExtendedQueryParams = {},
+    ): Promise<MultiEntityResponse<MobileCommunicationNetworkAreaCode>> => {
+      return getMobileCommunicationNetworkAreaCodes(resolvedBaseUrl, params);
+    },
+
+    /**
+     * Retrieves a specific mobile communication network area code by ID
+     * @param {number} id - The ID of the mobile communication network area code
+     * @param {CommonQueryParams} [params={}] - Common query parameters
+     * @returns {Promise<SingleEntityResponse<MobileCommunicationNetworkAreaCode>>} Promise resolving to a single mobile communication network area code
+     */
+    getMobileCommunicationNetworkAreaCodeById: (
+      id: number,
+      params: CommonQueryParams = {},
+    ): Promise<SingleEntityResponse<MobileCommunicationNetworkAreaCode>> => {
+      return getMobileCommunicationNetworkAreaCodeById(
+        resolvedBaseUrl,
+        id,
+        params,
+      );
+    },
+
+    /**
+     * Retrieves a list of mobile communication network municipality-specific availability entries
+     * @param {ExtendedQueryParams} [params={}] - Query parameters for filtering and pagination
+     * @returns {Promise<MultiEntityResponse<MobileCommunicationNetworkMunicipalitySpecificAvailability>>} Promise resolving to availability entries response
+     */
+    getMobileCommunicationNetworkMunicipalitySpecificAvailability: (
+      params: ExtendedQueryParams = {},
+    ): Promise<
+      MultiEntityResponse<MobileCommunicationNetworkMunicipalitySpecificAvailability>
+    > => {
+      return getMobileCommunicationNetworkMunicipalitySpecificAvailability(
+        resolvedBaseUrl,
+        params,
+      );
+    },
+
+    /**
+     * Retrieves a specific mobile communication network municipality-specific availability entry by ID
+     * @param {number} id - The ID of the availability entry to retrieve
+     * @param {CommonQueryParams} [params={}] - Common query parameters
+     * @returns {Promise<SingleEntityResponse<MobileCommunicationNetworkMunicipalitySpecificAvailability>>} Promise resolving to a single availability entry
+     */
+    getMobileCommunicationNetworkMunicipalitySpecificAvailabilityById: (
+      id: number,
+      params: CommonQueryParams = {},
+    ): Promise<
+      SingleEntityResponse<MobileCommunicationNetworkMunicipalitySpecificAvailability>
+    > => {
+      return getMobileCommunicationNetworkMunicipalitySpecificAvailabilityById(
+        resolvedBaseUrl,
+        id,
+        params,
+      );
+    },
+
+    /**
+     * Retrieves a list of mobile communication network province-specific availability entries
+     * @param {ExtendedQueryParams} [params={}] - Query parameters for filtering and pagination
+     * @returns {Promise<MultiEntityResponse<MobileCommunicationNetworkProvinceSpecificAvailability>>} Promise resolving to availability entries response
+     */
+    getMobileCommunicationNetworkProvinceSpecificAvailability: (
+      params: ExtendedQueryParams = {},
+    ): Promise<
+      MultiEntityResponse<MobileCommunicationNetworkProvinceSpecificAvailability>
+    > => {
+      return getMobileCommunicationNetworkProvinceSpecificAvailability(
+        resolvedBaseUrl,
+        params,
+      );
+    },
+
+    /**
+     * Retrieves a specific mobile communication network province-specific availability entry by ID
+     * @param {number} id - The ID of the availability entry
+     * @param {CommonQueryParams} [params={}] - Common query parameters
+     * @returns {Promise<SingleEntityResponse<MobileCommunicationNetworkProvinceSpecificAvailability>>} Promise resolving to a single availability entry
+     */
+    getMobileCommunicationNetworkProvinceSpecificAvailabilityById: (
+      id: number,
+      params: CommonQueryParams = {},
+    ): Promise<
+      SingleEntityResponse<MobileCommunicationNetworkProvinceSpecificAvailability>
+    > => {
+      return getMobileCommunicationNetworkProvinceSpecificAvailabilityById(
+        resolvedBaseUrl,
+        id,
+        params,
+      );
+    },
+
+    /**
+     * Retrieves a list of marine radio numbers
+     * @param {ExtendedQueryParams} [params={}] - Query parameters for filtering and pagination
+     * @returns {Promise<MultiEntityResponse<MarineRadioNumber>>} Promise resolving to marine radio numbers response
+     */
+    getMarineRadioNumbers: (
+      params: ExtendedQueryParams = {},
+    ): Promise<MultiEntityResponse<MarineRadioNumber>> => {
+      return getMarineRadioNumbers(resolvedBaseUrl, params);
+    },
+
+    /**
+     * Retrieves a specific marine radio number by ID
+     * @param {number} id - The ID of the marine radio number to retrieve
+     * @param {CommonQueryParams} [params={}] - Common query parameters
+     * @returns {Promise<SingleEntityResponse<MarineRadioNumber>>} Promise resolving to a single marine radio number
+     */
+    getMarineRadioNumberById: (
+      id: number,
+      params: CommonQueryParams = {},
+    ): Promise<SingleEntityResponse<MarineRadioNumber>> => {
+      return getMarineRadioNumberById(resolvedBaseUrl, id, params);
+    },
+
+    /**
+     * Retrieves a list of mobile network codes
+     * @param {ExtendedQueryParams} [params={}] - Query parameters for filtering and pagination
+     * @returns {Promise<MultiEntityResponse<MobileNetworkCode>>} Promise resolving to mobile network codes response
+     */
+    getMobileNetworkCodes: (
+      params: ExtendedQueryParams = {},
+    ): Promise<MultiEntityResponse<MobileNetworkCode>> => {
+      return getMobileNetworkCodes(resolvedBaseUrl, params);
+    },
+
+    /**
+     * Retrieves a specific mobile network code by ID
+     * @param {number} id - The ID of the mobile network code
+     * @param {CommonQueryParams} [params={}] - Common query parameters
+     * @returns {Promise<SingleEntityResponse<MobileNetworkCode>>} Promise resolving to a single mobile network code
+     */
+    getMobileNetworkCodeById: (
+      id: number,
+      params: CommonQueryParams = {},
+    ): Promise<SingleEntityResponse<MobileNetworkCode>> => {
+      return getMobileNetworkCodeById(resolvedBaseUrl, id, params);
+    },
+
+    /**
+     * Retrieves a list of radio amateur call signs
+     * @param {ExtendedQueryParams} [params={}] - Query parameters for filtering and pagination
+     * @returns {Promise<MultiEntityResponse<RadioAmateurCallSign>>} Promise resolving to radio amateur call signs response
+     */
+    getRadioAmateurCallSigns: (
+      params: ExtendedQueryParams = {},
+    ): Promise<MultiEntityResponse<RadioAmateurCallSign>> => {
+      return getRadioAmateurCallSigns(resolvedBaseUrl, params);
+    },
+
+    /**
+     * Retrieves a specific radio amateur call sign by ID
+     * @param {number} id - The ID of the radio amateur call sign
+     * @param {CommonQueryParams} [params={}] - Common query parameters
+     * @returns {Promise<SingleEntityResponse<RadioAmateurCallSign>>} Promise resolving to a single radio amateur call sign
+     */
+    getRadioAmateurCallSignById: (
+      id: number,
+      params: CommonQueryParams = {},
+    ): Promise<SingleEntityResponse<RadioAmateurCallSign>> => {
+      return getRadioAmateurCallSignById(resolvedBaseUrl, id, params);
+    },
+
+    /**
+     * Retrieves a list of radio station information
+     * @param {ExtendedQueryParams} [params={}] - Query parameters for filtering and pagination
+     * @returns {Promise<MultiEntityResponse<RadioStationInformation>>} Promise resolving to radio station information response
+     */
+    getRadioStationInformation: (
+      params: ExtendedQueryParams = {},
+    ): Promise<MultiEntityResponse<RadioStationInformation>> => {
+      return getRadioStationInformation(resolvedBaseUrl, params);
+    },
+
+    /**
+     * Retrieves a specific radio station information entry by ID
+     * @param {number} id - The ID of the radio station information entry
+     * @param {CommonQueryParams} [params={}] - Common query parameters
+     * @returns {Promise<SingleEntityResponse<RadioStationInformation>>} Promise resolving to a single radio station information entry
+     */
+    getRadioStationInformationById: (
+      id: number,
+      params: CommonQueryParams = {},
+    ): Promise<SingleEntityResponse<RadioStationInformation>> => {
+      return getRadioStationInformationById(resolvedBaseUrl, id, params);
+    },
+
+    getFreeRadioMicrophoneFrequencies: (
+      locationParams: FreeRadioMicrophoneFrequencyParams,
+      params: ExtendedQueryParams = {},
+    ): Promise<MultiEntityResponse<FreeRadioMicrophoneFrequency>> => {
+      return getFreeRadioMicrophoneFrequencies(
+        resolvedBaseUrl,
+        locationParams,
+        params,
+      );
     },
   };
 };
