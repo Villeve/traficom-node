@@ -1,3 +1,10 @@
+## [1.0.9](https://github.com/villeve/traficom-node/compare/v1.0.8...v1.0.9) (2024-10-29)
+
+
+### Bug Fixes
+
+* implement-multiple-new-endpoints ([f936d4b](https://github.com/villeve/traficom-node/commit/f936d4b5568f1e7dc30ad660c656984d5ee7fa8a))
+
 ## [1.0.8](https://github.com/villeve/traficom-node/compare/v1.0.7...v1.0.8) (2024-10-28)
 
 
