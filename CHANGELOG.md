@@ -1,3 +1,10 @@
+## [1.0.11](https://github.com/villeve/traficom-node/compare/v1.0.10...v1.0.11) (2024-10-30)
+
+
+### Bug Fixes
+
+* implement-number-and-frequency-endpoints ([ef256e5](https://github.com/villeve/traficom-node/commit/ef256e5c7f9a4cd2c04b1a4c52b3d54a1a16ae06))
+
 ## [1.0.10](https://github.com/villeve/traficom-node/compare/v1.0.9...v1.0.10) (2024-10-29)
 
 
