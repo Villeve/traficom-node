@@ -10,14 +10,6 @@ import { fetchJson } from "@/utils/fetch-json";
 import { handleApiError } from "@/utils/error-handler";
 import { MultiEntityResponse, ExtendedQueryParams } from "@/types";
 
-/**
- * Retrieves free radio microphone frequencies for a specific location.
- * @param {string} baseUrl - The base URL for the Traficom API.
- * @param {FreeRadioMicrophoneFrequencyParams} locationParams - Required location parameters (lat, lng) and optional frequency range.
- * @param {{ $expand?: string; $select?: string; $filter?: string; $orderby?: string; $top?: number; $skip?: number; $count?: boolean }} [params={}] - Optional parameters for the request.
- * @returns {Promise<MultiEntityResponse<FreeRadioMicrophoneFrequency>>} A promise that resolves to an object containing the free frequencies data and the OData context.
- * @throws {TraficomError} If there's an error fetching the data.
- */
 export const getFreeRadioMicrophoneFrequencies = async (
   baseUrl: string,
   locationParams: FreeRadioMicrophoneFrequencyParams,

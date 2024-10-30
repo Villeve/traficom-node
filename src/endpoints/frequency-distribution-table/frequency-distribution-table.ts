@@ -11,13 +11,6 @@ import {
   ExtendedQueryParams,
 } from "@/types";
 
-/**
- * Retrieves all frequency distribution table entries.
- * @param {string} baseUrl - The base URL for the Traficom API.
- * @param {{ $expand?: string; $select?: string; $filter?: string; $orderby?: string; $top?: number; $skip?: number; $count?: boolean }} [params={}] - Optional parameters for the request.
- * @returns {Promise<MultiEntityResponse<FrequencyDistributionTable>>} A promise that resolves to an object containing the frequency distribution table data and the OData context.
- * @throws {TraficomError} If there's an error fetching the data.
- */
 export const getFrequencyDistributionTable = async (
   baseUrl: string,
   params: ExtendedQueryParams = {},
@@ -34,14 +27,6 @@ export const getFrequencyDistributionTable = async (
   }
 };
 
-/**
- * Retrieves a specific frequency distribution table entry by ID.
- * @param {string} baseUrl - The base URL for the Traficom API.
- * @param {number} id - The ID of the frequency distribution table entry to retrieve.
- * @param {{ $expand?: string; $select?: string }} [params={}] - Optional parameters for the request.
- * @returns {Promise<SingleEntityResponse<FrequencyDistributionTable>>} A promise that resolves to an object containing the frequency distribution table entry data and the OData context.
- * @throws {TraficomError} If there's an error fetching the data.
- */
 export const getFrequencyDistributionTableById = async (
   baseUrl: string,
   id: number,

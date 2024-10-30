@@ -8,7 +8,7 @@ describe("aircraft-registers Integration Tests", () => {
   });
 
   test("getAircraftRegister should return data", async () => {
-    const result = await client.getAircraftRegister();
+    const result = await client.getAircraftRegister({ $top: 3 });
     expect(result).toHaveProperty("value");
     expect(Array.isArray(result.value)).toBeTruthy();
   });
@@ -22,7 +22,7 @@ describe("aircraft-registers Integration Tests", () => {
   });
 
   test("getAircraftRegisterById should return a single item", async () => {
-    const allAircraft = await client.getAircraftRegister();
+    const allAircraft = await client.getAircraftRegister({ $top: 3 });
     if (allAircraft.value.length > 0) {
       const firstId = allAircraft.value[0].ID;
       const result = await client.getAircraftRegisterById(firstId);
@@ -33,7 +33,7 @@ describe("aircraft-registers Integration Tests", () => {
   });
 
   test("getAircraftRegisterById with $select should return only selected fields", async () => {
-    const allAircraft = await client.getAircraftRegister();
+    const allAircraft = await client.getAircraftRegister({ $top: 3 });
     if (allAircraft.value.length > 0) {
       const firstId = allAircraft.value[0].ID;
       const result = await client.getAircraftRegisterById(firstId, {

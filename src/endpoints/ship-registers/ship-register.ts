@@ -8,13 +8,6 @@ import {
   ExtendedQueryParams,
 } from "@/types";
 
-/**
- * Retrieves all ship register entries.
- * @param {string} baseUrl - The base URL for the Traficom API.
- * @param {{ $expand?: string; $select?: string; $filter?: string; $orderby?: string; $top?: number; $skip?: number; $count?: boolean }} [params={}] - Optional parameters for the request.
- * @returns {Promise<MultiEntityResponse<ShipRegister>>} A promise that resolves to an object containing the ship register data and the OData context.
- * @throws {TraficomError} If there's an error fetching the data.
- */
 export const getShipRegisters = async (
   baseUrl: string,
   params: ExtendedQueryParams = {},
@@ -31,14 +24,6 @@ export const getShipRegisters = async (
   }
 };
 
-/**
- * Retrieves a specific ship register entry by ID.
- * @param {string} baseUrl - The base URL for the Traficom API.
- * @param {number} id - The ID of the ship register entry to retrieve.
- * @param {{ $expand?: string; $select?: string }} [params={}] - Optional parameters for the request.
- * @returns {Promise<SingleEntityResponse<ShipRegister>>} A promise that resolves to an object containing the ship register data and the OData context.
- * @throws {TraficomError} If there's an error fetching the data.
- */
 export const getShipRegisterById = async (
   baseUrl: string,
   id: number,

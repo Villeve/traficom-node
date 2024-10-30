@@ -9,13 +9,6 @@ import {
   ExtendedQueryParams,
 } from "@/types";
 
-/**
- * Retrieves all telecom company identifiers.
- * @param {string} baseUrl - The base URL for the Traficom API.
- * @param {{ $expand?: string; $select?: string; $filter?: string; $orderby?: string; $top?: number; $skip?: number; $count?: boolean }} [params={}] - Optional parameters for the request.
- * @returns {Promise<MultiEntityResponse<TelecomCompanyIdentifier>>} A promise that resolves to an object containing the telecom company identifiers data and the OData context.
- * @throws {TraficomError} If there's an error fetching the data.
- */
 export const getTelecomCompanyIdentifiers = async (
   baseUrl: string,
   params: ExtendedQueryParams = {},
@@ -32,14 +25,6 @@ export const getTelecomCompanyIdentifiers = async (
   }
 };
 
-/**
- * Retrieves a specific telecom company identifier by ID.
- * @param {string} baseUrl - The base URL for the Traficom API.
- * @param {number} id - The ID of the telecom company identifier to retrieve.
- * @param {{ $expand?: string; $select?: string }} [params={}] - Optional parameters for the request.
- * @returns {Promise<SingleEntityResponse<TelecomCompanyIdentifier>>} A promise that resolves to an object containing the telecom company identifier data and the OData context.
- * @throws {TraficomError} If there's an error fetching the data.
- */
 export const getTelecomCompanyIdentifierById = async (
   baseUrl: string,
   id: number,

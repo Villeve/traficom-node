@@ -12,13 +12,6 @@ import {
   ExtendedQueryParams,
 } from "@/types";
 
-/**
- * Retrieves all mobile communication network area codes.
- * @param {string} baseUrl - The base URL for the Traficom API.
- * @param {{ $expand?: string; $select?: string; $filter?: string; $orderby?: string; $top?: number; $skip?: number; $count?: boolean }} [params={}] - Optional parameters for the request.
- * @returns {Promise<MultiEntityResponse<MobileCommunicationNetworkAreaCode>>} A promise that resolves to an object containing the area codes data and the OData context.
- * @throws {TraficomError} If there's an error fetching the data.
- */
 export const getMobileCommunicationNetworkAreaCodes = async (
   baseUrl: string,
   params: ExtendedQueryParams = {},
@@ -35,14 +28,6 @@ export const getMobileCommunicationNetworkAreaCodes = async (
   }
 };
 
-/**
- * Retrieves a specific mobile communication network area code by ID.
- * @param {string} baseUrl - The base URL for the Traficom API.
- * @param {number} id - The ID of the area code to retrieve.
- * @param {{ $expand?: string; $select?: string }} [params={}] - Optional parameters for the request.
- * @returns {Promise<SingleEntityResponse<MobileCommunicationNetworkAreaCode>>} A promise that resolves to an object containing the area code data and the OData context.
- * @throws {TraficomError} If there's an error fetching the data.
- */
 export const getMobileCommunicationNetworkAreaCodeById = async (
   baseUrl: string,
   id: number,

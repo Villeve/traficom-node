@@ -8,7 +8,7 @@ describe("ship-registers Integration Tests", () => {
   });
 
   test("getShipRegisters should return data", async () => {
-    const result = await client.getShipRegisters();
+    const result = await client.getShipRegisters({ $top: 3 });
     expect(result).toHaveProperty("value");
     expect(Array.isArray(result.value)).toBeTruthy();
   });
@@ -22,7 +22,7 @@ describe("ship-registers Integration Tests", () => {
   });
 
   test("getShipRegisterById should return a single item", async () => {
-    const allShips = await client.getShipRegisters();
+    const allShips = await client.getShipRegisters({ $top: 3 });
     if (allShips.value.length > 0) {
       const firstId = allShips.value[0].ID;
       const result = await client.getShipRegisterById(firstId);
@@ -33,7 +33,7 @@ describe("ship-registers Integration Tests", () => {
   });
 
   test("getShipRegisterById with $select should return only selected fields", async () => {
-    const allShips = await client.getShipRegisters();
+    const allShips = await client.getShipRegisters({ $top: 3 });
     if (allShips.value.length > 0) {
       const firstId = allShips.value[0].ID;
       const result = await client.getShipRegisterById(firstId, {

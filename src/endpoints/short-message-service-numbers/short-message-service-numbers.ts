@@ -7,13 +7,6 @@ import { fetchJson } from "@/utils/fetch-json";
 import { handleApiError } from "@/utils/error-handler";
 import { MultiEntityResponse, ExtendedQueryParams } from "@/types";
 
-/**
- * Retrieves all short message service numbers.
- * @param {string} baseUrl - The base URL for the Traficom API.
- * @param {{ $expand?: string; $select?: string; $filter?: string; $orderby?: string; $top?: number; $skip?: number; $count?: boolean }} [params={}] - Optional parameters for the request.
- * @returns {Promise<MultiEntityResponse<ShortMessageServiceNumber>>} A promise that resolves to an object containing the short message service numbers data and the OData context.
- * @throws {TraficomError} If there's an error fetching the data.
- */
 export const getShortMessageServiceNumbers = async (
   baseUrl: string,
   params: ExtendedQueryParams = {},

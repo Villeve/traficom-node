@@ -8,13 +8,6 @@ import {
   ExtendedQueryParams,
 } from "@/types";
 
-/**
- * Retrieves all radio station information entries.
- * @param {string} baseUrl - The base URL for the Traficom API.
- * @param {{ $expand?: string; $select?: string; $filter?: string; $orderby?: string; $top?: number; $skip?: number; $count?: boolean }} [params={}] - Optional parameters for the request.
- * @returns {Promise<MultiEntityResponse<RadioStationInformation>>} A promise that resolves to an object containing the radio station information data and the OData context.
- * @throws {TraficomError} If there's an error fetching the data.
- */
 export const getRadioStationInformation = async (
   baseUrl: string,
   params: ExtendedQueryParams = {},
@@ -31,14 +24,6 @@ export const getRadioStationInformation = async (
   }
 };
 
-/**
- * Retrieves a specific radio station information entry by ID.
- * @param {string} baseUrl - The base URL for the Traficom API.
- * @param {number} id - The ID of the radio station information entry to retrieve.
- * @param {{ $expand?: string; $select?: string }} [params={}] - Optional parameters for the request.
- * @returns {Promise<SingleEntityResponse<RadioStationInformation>>} A promise that resolves to an object containing the radio station information data and the OData context.
- * @throws {TraficomError} If there's an error fetching the data.
- */
 export const getRadioStationInformationById = async (
   baseUrl: string,
   id: number,

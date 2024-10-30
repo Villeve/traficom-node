@@ -12,13 +12,6 @@ import {
   ExtendedQueryParams,
 } from "@/types";
 
-/**
- * Retrieves all mobile communication network province-specific availability entries.
- * @param {string} baseUrl - The base URL for the Traficom API.
- * @param {{ $expand?: string; $select?: string; $filter?: string; $orderby?: string; $top?: number; $skip?: number; $count?: boolean }} [params={}] - Optional parameters for the request.
- * @returns {Promise<MultiEntityResponse<MobileCommunicationNetworkProvinceSpecificAvailability>>} A promise that resolves to an object containing the availability data and the OData context.
- * @throws {TraficomError} If there's an error fetching the data.
- */
 export const getMobileCommunicationNetworkProvinceSpecificAvailability = async (
   baseUrl: string,
   params: ExtendedQueryParams = {},
@@ -37,14 +30,6 @@ export const getMobileCommunicationNetworkProvinceSpecificAvailability = async (
   }
 };
 
-/**
- * Retrieves a specific mobile communication network province-specific availability entry by ID.
- * @param {string} baseUrl - The base URL for the Traficom API.
- * @param {number} id - The ID of the availability entry to retrieve.
- * @param {{ $expand?: string; $select?: string }} [params={}] - Optional parameters for the request.
- * @returns {Promise<SingleEntityResponse<MobileCommunicationNetworkProvinceSpecificAvailability>>} A promise that resolves to an object containing the availability data and the OData context.
- * @throws {TraficomError} If there's an error fetching the data.
- */
 export const getMobileCommunicationNetworkProvinceSpecificAvailabilityById =
   async (
     baseUrl: string,

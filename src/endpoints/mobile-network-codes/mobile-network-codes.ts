@@ -9,13 +9,6 @@ import {
   ExtendedQueryParams,
 } from "@/types";
 
-/**
- * Retrieves all mobile network codes.
- * @param {string} baseUrl - The base URL for the Traficom API.
- * @param {{ $expand?: string; $select?: string; $filter?: string; $orderby?: string; $top?: number; $skip?: number; $count?: boolean }} [params={}] - Optional parameters for the request.
- * @returns {Promise<MultiEntityResponse<MobileNetworkCode>>} A promise that resolves to an object containing the mobile network codes data and the OData context.
- * @throws {TraficomError} If there's an error fetching the data.
- */
 export const getMobileNetworkCodes = async (
   baseUrl: string,
   params: ExtendedQueryParams = {},
@@ -32,14 +25,6 @@ export const getMobileNetworkCodes = async (
   }
 };
 
-/**
- * Retrieves a specific mobile network code by ID.
- * @param {string} baseUrl - The base URL for the Traficom API.
- * @param {number} id - The ID of the mobile network code to retrieve.
- * @param {{ $expand?: string; $select?: string }} [params={}] - Optional parameters for the request.
- * @returns {Promise<SingleEntityResponse<MobileNetworkCode>>} A promise that resolves to an object containing the mobile network code data and the OData context.
- * @throws {TraficomError} If there's an error fetching the data.
- */
 export const getMobileNetworkCodeById = async (
   baseUrl: string,
   id: number,

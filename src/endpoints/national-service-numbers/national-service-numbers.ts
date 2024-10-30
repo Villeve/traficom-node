@@ -9,13 +9,6 @@ import {
   ExtendedQueryParams,
 } from "@/types";
 
-/**
- * Retrieves all national service numbers.
- * @param {string} baseUrl - The base URL for the Traficom API.
- * @param {{ $expand?: string; $select?: string; $filter?: string; $orderby?: string; $top?: number; $skip?: number; $count?: boolean }} [params={}] - Optional parameters for the request.
- * @returns {Promise<MultiEntityResponse<NationalServiceNumber>>} A promise that resolves to an object containing the national service numbers data and the OData context.
- * @throws {TraficomError} If there's an error fetching the data.
- */
 export const getNationalServiceNumbers = async (
   baseUrl: string,
   params: ExtendedQueryParams = {},
@@ -32,14 +25,6 @@ export const getNationalServiceNumbers = async (
   }
 };
 
-/**
- * Retrieves a specific national service number by ID.
- * @param {string} baseUrl - The base URL for the Traficom API.
- * @param {number} id - The ID of the national service number to retrieve.
- * @param {{ $expand?: string; $select?: string }} [params={}] - Optional parameters for the request.
- * @returns {Promise<SingleEntityResponse<NationalServiceNumber>>} A promise that resolves to an object containing the national service number data and the OData context.
- * @throws {TraficomError} If there's an error fetching the data.
- */
 export const getNationalServiceNumberById = async (
   baseUrl: string,
   id: number,

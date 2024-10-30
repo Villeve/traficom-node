@@ -9,13 +9,6 @@ import {
   ExtendedQueryParams,
 } from "@/types";
 
-/**
- * Retrieves all railway equipment register entries.
- * @param {string} baseUrl - The base URL for the Traficom API.
- * @param {{ $expand?: string; $select?: string; $filter?: string; $orderby?: string; $top?: number; $skip?: number; $count?: boolean }} [params={}] - Optional parameters for the request.
- * @returns {Promise<MultiEntityResponse<RailwayEquipmentRegister>>} A promise that resolves to an object containing the railway equipment register data and the OData context.
- * @throws {TraficomError} If there's an error fetching the data.
- */
 export const getRailwayEquipmentRegisters = async (
   baseUrl: string,
   params: ExtendedQueryParams = {},
@@ -32,14 +25,6 @@ export const getRailwayEquipmentRegisters = async (
   }
 };
 
-/**
- * Retrieves a specific railway equipment register entry by ID.
- * @param {string} baseUrl - The base URL for the Traficom API.
- * @param {number} id - The ID of the railway equipment register entry to retrieve.
- * @param {{ $expand?: string; $select?: string }} [params={}] - Optional parameters for the request.
- * @returns {Promise<SingleEntityResponse<RailwayEquipmentRegister>>} A promise that resolves to an object containing the railway equipment register data and the OData context.
- * @throws {TraficomError} If there's an error fetching the data.
- */
 export const getRailwayEquipmentRegisterById = async (
   baseUrl: string,
   id: number,

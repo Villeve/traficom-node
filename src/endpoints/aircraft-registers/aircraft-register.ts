@@ -8,13 +8,6 @@ import {
   ExtendedQueryParams,
 } from "@/types";
 
-/**
- * Retrieves aircraft register data.
- * @param {string} baseUrl - The base URL for the Traficom API.
- * @param {{ $expand?: string; $filter?: string; $select?: string; $orderby?: string; $top?: number; $skip?: number; $count?: boolean }} [params={}] - Optional parameters for the request.
- * @returns {Promise<MultiEntityResponse<AircraftRegister>>} A promise that resolves to an object containing an array of aircraft register data, context, and optionally a count.
- * @throws {TraficomError} If there's an error fetching the data.
- */
 export const getAircraftRegister = async (
   baseUrl: string,
   params: ExtendedQueryParams = {},
@@ -31,14 +24,6 @@ export const getAircraftRegister = async (
   }
 };
 
-/**
- * Retrieves a specific aircraft register entry by ID.
- * @param {string} baseUrl - The base URL for the Traficom API.
- * @param {number} id - The ID of the aircraft register entry to retrieve.
- * @param {{ $expand?: string; $select?: string }} [params={}] - Optional parameters for the request.
- * @returns {Promise<SingleEntityResponse<AircraftRegister>>} A promise that resolves to an object containing the aircraft register data and the OData context.
- * @throws {TraficomError} If there's an error fetching the data.
- */
 export const getAircraftRegisterById = async (
   baseUrl: string,
   id: number,
