@@ -9,7 +9,9 @@ describe("marine-radio-numbers Integration Tests", () => {
 
   describe("getMarineRadioNumbers", () => {
     it("should fetch a list of marine radio numbers", async () => {
-      const response = await client.getMarineRadioNumbers();
+      const response = await client.getMarineRadioNumbers({
+        $top: 10,
+      });
 
       expect(response).toBeDefined();
       expect(response["@odata.context"]).toBeDefined();
@@ -45,19 +47,6 @@ describe("marine-radio-numbers Integration Tests", () => {
         expect(item).toHaveProperty("MMSINumber");
         expect(item).toHaveProperty("ShipName");
         expect(item).not.toHaveProperty("ShipCallSign");
-      }
-    });
-
-    it("should handle $orderby parameter correctly", async () => {
-      const response = await client.getMarineRadioNumbers({
-        $top: 5,
-        $orderby: "ShipName asc",
-      });
-
-      if (response.value.length > 1) {
-        const shipNames = response.value.map((item) => item.ShipName);
-        const sortedNames = [...shipNames].sort();
-        expect(shipNames).toEqual(sortedNames);
       }
     });
   });

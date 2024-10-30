@@ -103,6 +103,50 @@ import {
   FreeRadioMicrophoneFrequencyParams,
   getFreeRadioMicrophoneFrequencies,
 } from "./endpoints/free-radio-microphone-frequencies";
+import {
+  getRailwayEquipmentRegisterById,
+  getRailwayEquipmentRegisters,
+  RailwayEquipmentRegister,
+} from "./endpoints/railway-equipment-registers";
+import {
+  FrequencyDistributionTable,
+  getFrequencyDistributionTable,
+  getFrequencyDistributionTableById,
+} from "./endpoints/frequency-distribution-table";
+import {
+  FrequencyDistributionTableFinland,
+  getFrequencyDistributionTableFinland,
+  getFrequencyDistributionTableFinlandById,
+} from "./endpoints/frequency-distribution-table-finland";
+import {
+  FrequencyDistributionTableSweden,
+  getFrequencyDistributionTableSweden,
+  getFrequencyDistributionTableSwedenById,
+} from "./endpoints/frequency-distribution-table-sweden";
+import {
+  getTelecomCompanyIdentifierById,
+  getTelecomCompanyIdentifiers,
+  TelecomCompanyIdentifier,
+} from "./endpoints/telecom-company-identifiers";
+import {
+  getTelevisionStationInformation,
+  getTelevisionStationInformationById,
+  TelevisionStationInformation,
+} from "./endpoints/television-station-information";
+import {
+  NationalServiceNumber,
+  getNationalServiceNumberById,
+  getNationalServiceNumbers,
+} from "./endpoints/national-service-numbers";
+import {
+  getNationalSubscriberNumberById,
+  getNationalSubscriberNumbers,
+  NationalSubscriberNumber,
+} from "./endpoints/national-subscriber-numbers";
+import {
+  GeneralServiceArea,
+  getGeneralServiceAreas,
+} from "./endpoints/general-service-areas";
 
 /**
  * Creates a Traficom API client for interacting with the Traficom API.
@@ -613,6 +657,12 @@ export const createClient = (baseUrl?: string) => {
       return getRadioStationInformationById(resolvedBaseUrl, id, params);
     },
 
+    /**
+     * Retrieves a list of free radio microphone frequencies
+     * @param {FreeRadioMicrophoneFrequencyParams} locationParams - Location parameters
+     * @param {ExtendedQueryParams} [params={}] - Query parameters for filtering and pagination
+     * @returns {Promise<MultiEntityResponse<FreeRadioMicrophoneFrequency>>} Promise resolving to free radio microphone frequencies response
+     */
     getFreeRadioMicrophoneFrequencies: (
       locationParams: FreeRadioMicrophoneFrequencyParams,
       params: ExtendedQueryParams = {},
@@ -622,6 +672,217 @@ export const createClient = (baseUrl?: string) => {
         locationParams,
         params,
       );
+    },
+
+    /**
+     * Retrieves a list of railway equipment register
+     * @param {ExtendedQueryParams} [params={}] - Query parameters for filtering and pagination
+     * @returns {Promise<MultiEntityResponse<RailwayEquipmentRegister>>} Promise resolving to railway equipment register response
+     */
+    getRailwayEquipmentRegisters: (
+      params: ExtendedQueryParams = {},
+    ): Promise<MultiEntityResponse<RailwayEquipmentRegister>> => {
+      return getRailwayEquipmentRegisters(resolvedBaseUrl, params);
+    },
+
+    /**
+     * Retrieves a specific railway equipment register entry by ID
+     * @param {number} id - The ID of the railway equipment register entry
+     * @param {CommonQueryParams} [params={}] - Common query parameters
+     * @returns {Promise<SingleEntityResponse<RailwayEquipmentRegister>>} Promise resolving to a single railway equipment register entry
+     */
+    getRailwayEquipmentRegisterById: (
+      id: number,
+      params: CommonQueryParams = {},
+    ): Promise<SingleEntityResponse<RailwayEquipmentRegister>> => {
+      return getRailwayEquipmentRegisterById(resolvedBaseUrl, id, params);
+    },
+
+    /**
+     * Retrieves a list of frequency distribution table
+     * @param {ExtendedQueryParams} [params={}] - Query parameters for filtering and pagination
+     * @returns {Promise<MultiEntityResponse<FrequencyDistributionTable>>} Promise resolving to frequency distribution table response
+     */
+    getFrequencyDistributionTable: (
+      params: ExtendedQueryParams = {},
+    ): Promise<MultiEntityResponse<FrequencyDistributionTable>> => {
+      return getFrequencyDistributionTable(resolvedBaseUrl, params);
+    },
+
+    /**
+     * Retrieves a specific frequency distribution table entry by ID
+     * @param {number} id - The ID of the frequency distribution table entry
+     * @param {CommonQueryParams} [params={}] - Common query parameters
+     * @returns {Promise<SingleEntityResponse<FrequencyDistributionTable>>} Promise resolving to a single frequency distribution table entry
+     */
+    getFrequencyDistributionTableById: (
+      id: number,
+      params: CommonQueryParams = {},
+    ): Promise<SingleEntityResponse<FrequencyDistributionTable>> => {
+      return getFrequencyDistributionTableById(resolvedBaseUrl, id, params);
+    },
+
+    /**
+     * Retrieves a list of frequency distribution table in Finnish
+     * @param {ExtendedQueryParams} [params={}] - Query parameters for filtering and pagination
+     * @returns {Promise<MultiEntityResponse<FrequencyDistributionTableFinland>>} Promise resolving to frequency distribution table in Finnish response
+     */
+    getFrequencyDistributionTableFinland: (
+      params: ExtendedQueryParams = {},
+    ): Promise<MultiEntityResponse<FrequencyDistributionTableFinland>> => {
+      return getFrequencyDistributionTableFinland(resolvedBaseUrl, params);
+    },
+
+    /**
+     * Retrieves a specific frequency distribution table in Finnish entry by ID
+     * @param {number} id - The ID of the frequency distribution table in Finnish entry
+     * @param {CommonQueryParams} [params={}] - Common query parameters
+     * @returns {Promise<SingleEntityResponse<FrequencyDistributionTableFinland>>} Promise resolving to a single frequency distribution table in Finnish entry
+     */
+    getFrequencyDistributionTableFinlandById: (
+      id: number,
+      params: CommonQueryParams = {},
+    ): Promise<SingleEntityResponse<FrequencyDistributionTableFinland>> => {
+      return getFrequencyDistributionTableFinlandById(
+        resolvedBaseUrl,
+        id,
+        params,
+      );
+    },
+
+    /**
+     * Retrieves a list of frequency distribution table in Sweden
+     * @param {ExtendedQueryParams} [params={}] - Query parameters for filtering and pagination
+     * @returns {Promise<MultiEntityResponse<FrequencyDistributionTableSweden>>} Promise resolving to frequency distribution table in Sweden response
+     */
+    getFrequencyDistributionTableSweden: (
+      params: ExtendedQueryParams = {},
+    ): Promise<MultiEntityResponse<FrequencyDistributionTableSweden>> => {
+      return getFrequencyDistributionTableSweden(resolvedBaseUrl, params);
+    },
+
+    /**
+     * Retrieves a specific frequency distribution table in Sweden entry by ID
+     * @param {number} id - The ID of the frequency distribution table in Sweden entry
+     * @param {CommonQueryParams} [params={}] - Common query parameters
+     * @returns {Promise<SingleEntityResponse<FrequencyDistributionTableSweden>>} Promise resolving to a single frequency distribution table in Sweden entry
+     */
+    getFrequencyDistributionTableSwedenById: (
+      id: number,
+      params: CommonQueryParams = {},
+    ): Promise<SingleEntityResponse<FrequencyDistributionTableSweden>> => {
+      return getFrequencyDistributionTableSwedenById(
+        resolvedBaseUrl,
+        id,
+        params,
+      );
+    },
+
+    /**
+     * Retrieves a list of telecom company identifiers
+     * @param {ExtendedQueryParams} [params={}] - Query parameters for filtering and pagination
+     * @returns {Promise<MultiEntityResponse<TelecomCompanyIdentifier>>} Promise resolving to telecom company identifiers response
+     */
+    getTelecomCompanyIdentifiers: (
+      params: ExtendedQueryParams = {},
+    ): Promise<MultiEntityResponse<TelecomCompanyIdentifier>> => {
+      return getTelecomCompanyIdentifiers(resolvedBaseUrl, params);
+    },
+
+    /**
+     * Retrieves a specific telecom company identifier by ID
+     * @param {number} id - The ID of the telecom company identifier
+     * @param {CommonQueryParams} [params={}] - Common query parameters
+     * @returns {Promise<SingleEntityResponse<TelecomCompanyIdentifier>>} Promise resolving to a single telecom company identifier
+     */
+    getTelecomCompanyIdentifierById: (
+      id: number,
+      params: CommonQueryParams = {},
+    ): Promise<SingleEntityResponse<TelecomCompanyIdentifier>> => {
+      return getTelecomCompanyIdentifierById(resolvedBaseUrl, id, params);
+    },
+
+    /**
+     * Retrieves a list of television station information
+     * @param {ExtendedQueryParams} [params={}] - Query parameters for filtering and pagination
+     * @returns {Promise<MultiEntityResponse<TelevisionStationInformation>>} Promise resolving to television station information response
+     */
+    getTelevisionStationInformation: (
+      params: ExtendedQueryParams = {},
+    ): Promise<MultiEntityResponse<TelevisionStationInformation>> => {
+      return getTelevisionStationInformation(resolvedBaseUrl, params);
+    },
+
+    /**
+     * Retrieves a specific television station information entry by ID
+     * @param {number} id - The ID of the television station information entry
+     * @param {CommonQueryParams} [params={}] - Common query parameters
+     * @returns {Promise<SingleEntityResponse<TelevisionStationInformation>>} Promise resolving to a single television station information entry
+     */
+    getTelevisionStationInformationById: (
+      id: number,
+      params: CommonQueryParams = {},
+    ): Promise<SingleEntityResponse<TelevisionStationInformation>> => {
+      return getTelevisionStationInformationById(resolvedBaseUrl, id, params);
+    },
+
+    /**
+     * Retrieves a list of national service numbers
+     * @param {ExtendedQueryParams} [params={}] - Query parameters for filtering and pagination
+     * @returns {Promise<MultiEntityResponse<NationalServiceNumber>>} Promise resolving to national service numbers response
+     */
+    getNationalServiceNumbers: (
+      params: ExtendedQueryParams = {},
+    ): Promise<MultiEntityResponse<NationalServiceNumber>> => {
+      return getNationalServiceNumbers(resolvedBaseUrl, params);
+    },
+
+    /**
+     * Retrieves a specific national service number by ID
+     * @param {number} id - The ID of the national service number
+     * @param {CommonQueryParams} [params={}] - Common query parameters
+     * @returns {Promise<SingleEntityResponse<NationalServiceNumber>>} Promise resolving to a single national service number
+     */
+    getNationalServiceNumberById: (
+      id: number,
+      params: CommonQueryParams = {},
+    ): Promise<SingleEntityResponse<NationalServiceNumber>> => {
+      return getNationalServiceNumberById(resolvedBaseUrl, id, params);
+    },
+
+    /**
+     * Retrieves a list of national subscriber numbers
+     * @param {ExtendedQueryParams} [params={}] - Query parameters for filtering and pagination
+     * @returns {Promise<MultiEntityResponse<NationalSubscriberNumber>>} Promise resolving to national subscriber numbers response
+     */
+    getNationalSubscriberNumbers: (
+      params: ExtendedQueryParams = {},
+    ): Promise<MultiEntityResponse<NationalSubscriberNumber>> => {
+      return getNationalSubscriberNumbers(resolvedBaseUrl, params);
+    },
+
+    /**
+     * Retrieves a specific national subscriber number by ID
+     * @param {number} id - The ID of the national subscriber number
+     * @param {CommonQueryParams} [params={}] - Common query parameters
+     * @returns {Promise<SingleEntityResponse<NationalSubscriberNumber>>} Promise resolving to a single national subscriber number
+     */
+    getNationalSubscriberNumberById: (
+      id: number,
+      params: CommonQueryParams = {},
+    ): Promise<SingleEntityResponse<NationalSubscriberNumber>> => {
+      return getNationalSubscriberNumberById(resolvedBaseUrl, id, params);
+    },
+
+    /**
+     * Retrieves a list of general service areas
+     * @param {ExtendedQueryParams} [params={}] - Query parameters for filtering and pagination
+     * @returns {Promise<MultiEntityResponse<GeneralServiceArea>>} Promise resolving to general service areas response
+     */
+    getGeneralServiceAreas: (
+      params: ExtendedQueryParams = {},
+    ): Promise<MultiEntityResponse<GeneralServiceArea>> => {
+      return getGeneralServiceAreas(resolvedBaseUrl, params);
     },
   };
 };

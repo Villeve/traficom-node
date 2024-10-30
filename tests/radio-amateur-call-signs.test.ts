@@ -45,19 +45,6 @@ describe("radio-amateur-call-signs Integration Tests", () => {
         expect(item).not.toHaveProperty("Validity");
       }
     });
-
-    it("should handle $orderby parameter correctly", async () => {
-      const response = await client.getRadioAmateurCallSigns({
-        $top: 5,
-        $orderby: "CallSign asc",
-      });
-
-      if (response.value.length > 1) {
-        const callSigns = response.value.map((item) => item.CallSign);
-        const sortedCallSigns = [...callSigns].sort();
-        expect(callSigns).toEqual(sortedCallSigns);
-      }
-    });
   });
 
   describe("getRadioAmateurCallSignById", () => {

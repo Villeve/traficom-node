@@ -31,3 +31,17 @@ export const RADIO_AMATEUR_CALL_SIGNS_ENDPOINT = "RadioamatoorienKutsumerkit";
 export const RADIO_STATION_INFORMATION_ENDPOINT = "Radioasematiedot";
 export const FREE_RADIO_MICROPHONE_FREQUENCIES_ENDPOINT =
   "RadiomikrofonitVapaatTaajuudet";
+export const RAILWAY_EQUIPMENT_REGISTER_ENDPOINT =
+  "RautateidenKalustorekisteri";
+export const FREQUENCY_DISTRIBUTION_TABLE_ENDPOINT = "Taajuusjakotaulukko";
+export const FREQUENCY_DISTRIBUTION_TABLE_FINLAND_ENDPOINT =
+  "Taajuusjakotaulukko_fin";
+export const FREQUENCY_DISTRIBUTION_TABLE_SWEDEN_ENDPOINT =
+  "Taajuusjakotaulukko_swe";
+export const TELECOM_COMPANY_IDENTIFIERS_ENDPOINT = "Teleyritystunnisteet";
+export const TELEVISION_STATION_INFORMATION_ENDPOINT = "TVAsematiedot";
+export const NATIONAL_SERVICE_NUMBERS_ENDPOINT =
+  "ValtakunnallisetPalvelunumerot";
+export const NATIONAL_SUBSCRIBER_NUMBERS_ENDPOINT =
+  "ValtakunnallisetTilaajanumerot";
+export const GENERAL_SERVICE_AREAS_ENDPOINT = "Yleispalvelualueet";
