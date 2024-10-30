@@ -1,3 +1,10 @@
+## [1.0.12](https://github.com/villeve/traficom-node/compare/v1.0.11...v1.0.12) (2024-10-30)
+
+
+### Bug Fixes
+
+* improve-typing ([e4b99e6](https://github.com/villeve/traficom-node/commit/e4b99e6c1255508d87009d8727a9fc5b871e783e))
+
 ## [1.0.11](https://github.com/villeve/traficom-node/compare/v1.0.10...v1.0.11) (2024-10-30)
 
 
