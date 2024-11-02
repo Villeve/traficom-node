@@ -1,4 +1,4 @@
-import { createClient } from "@/index";
+import { createClient } from "../src/index";
 
 describe("landline-telephone-network-subscriber-numbers Integration Tests", () => {
   const client = createClient();
@@ -6,7 +6,9 @@ describe("landline-telephone-network-subscriber-numbers Integration Tests", () =
   describe("getLandlineTelephoneNetworkSubscriberNumbers", () => {
     it("should fetch a list of subscriber numbers", async () => {
       const response =
-        await client.getLandlineTelephoneNetworkSubscriberNumbers();
+        await client.getLandlineTelephoneNetworkSubscriberNumbers({
+          $top: 3,
+        });
 
       expect(response).toBeDefined();
       expect(response["@odata.context"]).toBeDefined();

@@ -13,8 +13,19 @@
     "paths": {
       "@/*": ["src/*"]
     },
-    "moduleResolution": "node"
+    "moduleResolution": "node",
+    "importHelpers": true,
+    "noEmitHelpers": true,
+    "sourceMap": false
   },
-  "include": ["src/**/*", "tests/**/*"],
-  "exclude": ["node_modules", "dist", "coverage", "examples"]
+  "include": ["src/**/*"],
+  "exclude": [
+    "node_modules",
+    "dist",
+    "coverage",
+    "examples",
+    "**/*.test.ts",
+    "**/*.spec.ts",
+    "tests/**/*"
+  ]
 }
