@@ -1,5 +1,8 @@
 [![CI/CD](https://github.com/villeve/traficom-node/actions/workflows/ci-cd.yml/badge.svg)](https://github.com/villeve/traficom-node/actions/workflows/ci-cd.yml)
 [![npm version](https://badge.fury.io/js/traficom-node.svg)](https://badge.fury.io/js/traficom-node)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](http://makeapullrequest.com)
+[![Downloads](https://img.shields.io/npm/dm/traficom-node.svg)](https://www.npmjs.com/package/traficom-node)
 
 # Traficom Node.js SDK
 
@@ -36,15 +39,14 @@ import { createClient } from "traficom-node";
 const client = createClient();
 
 // Basic usage
-async function main() {
+const fetchTelecomCompanies = async () => {
   try {
-    // Fetch telecom company identifiers
     const telecomCompanies = await client.getTelecomCompanyIdentifiers();
-    console.log(telecomCompanies.value);
+    return telecomCompanies.value;
   } catch (error) {
     console.error("Error:", error);
   }
-}
+};
 ```
 
 ## Common Use Cases
@@ -143,25 +145,72 @@ const response = await client.getRadioAmateurCallSigns({
 The SDK is written in TypeScript and provides full type definitions for all API responses:
 
 ```typescript
-import { TelecomCompanyIdentifier, BroadbandProject } from 'traficom-node';
-async function getCompanyProjects(companyName: string): Promise<BroadbandProject[]> {
-  const response = await client.getBroadbandProjects({
-    $filter: OperatorName eq '${companyName}'
-  });
-  return response.value;
-}
+import { TelecomCompanyIdentifier, BroadbandProject } from "traficom-node";
+
+const getCompanyProjects = async (
+  companyName: string,
+): Promise<BroadbandProject[]> => {
+  try {
+    const { value: projects } = await client.getBroadbandProjects({
+      $filter: `OperatorName eq '${encodeURIComponent(companyName)}'`,
+    });
+    return projects;
+  } catch (error) {
+    console.error("Error:", error);
+  }
+};
 ```
 
 ## Contributing
 
 Contributions are welcome! Please check our contributing guidelines for details.
 
+## Changelog
+
+See [CHANGELOG.md](./CHANGELOG.md) for a list of changes and upgrade notes.
+
+## Development
+
+### Setup
+
+```bash
+git clone https://github.com/villeve/traficom-node.git
+cd traficom-node
+npm install
+```
+
+### Building
+
+```bash
+npm run build
+```
+
+### Running Tests
+
+```bash
+npm test
+```
+
+## Support
+
+- Create an [issue](https://github.com/villeve/traficom-node/issues)
+
+## Roadmap
+
+- [ ] Write unit tests
+- [ ] Enhance type coverage
+
+## Acknowledgments
+
+- Thanks to Traficom for providing the API
+- All the [contributors](https://github.com/villeve/traficom-node/graphs/contributors)
+
 ## License
 
 MIT License - feel free to use this SDK in your projects.
 
-## Documentation
+## API Reference
 
-For detailed API documentation, please visit Traficom [API Documentation](https://opendata.traficom.fi).
+Full API documentation is available at:
 
-For more examples, check the `examples/` directory in the repository.
+- [Traficom API Documentation](https://opendata.traficom.fi) - Official Traficom API reference
