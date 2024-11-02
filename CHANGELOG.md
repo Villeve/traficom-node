@@ -1,3 +1,11 @@
+## [1.0.13](https://github.com/villeve/traficom-node/compare/v1.0.12...v1.0.13) (2024-11-02)
+
+
+### Bug Fixes
+
+* implement-create-endpoint-handlers-function ([5647102](https://github.com/villeve/traficom-node/commit/5647102b0faca645af9f6970388a9450d0044c21))
+* remove-test-files-from-package ([374bfb5](https://github.com/villeve/traficom-node/commit/374bfb521aa63b48e264f1a6af55dc6b23de92d0))
+
 ## [1.0.12](https://github.com/villeve/traficom-node/compare/v1.0.11...v1.0.12) (2024-10-30)
 
 
