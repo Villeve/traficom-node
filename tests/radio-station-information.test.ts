@@ -1,4 +1,4 @@
-import { createClient } from "@/index";
+import { createClient } from "../src/index";
 
 describe("radio-station-information Integration Tests", () => {
   let client: ReturnType<typeof createClient>;
@@ -9,7 +9,7 @@ describe("radio-station-information Integration Tests", () => {
 
   describe("getRadioStationInformation", () => {
     it("should fetch a list of radio station information", async () => {
-      const response = await client.getRadioStationInformation({
+      const response = await client.getRadioStations({
         $top: 5,
       });
 
@@ -28,7 +28,7 @@ describe("radio-station-information Integration Tests", () => {
 
     it("should handle $top parameter correctly", async () => {
       const top = 5;
-      const response = await client.getRadioStationInformation({
+      const response = await client.getRadioStations({
         $top: top,
       });
 
@@ -36,7 +36,7 @@ describe("radio-station-information Integration Tests", () => {
     });
 
     it("should handle $select parameter correctly", async () => {
-      const response = await client.getRadioStationInformation({
+      const response = await client.getRadioStations({
         $select: "ID,Municipality,StationName",
       });
 
@@ -51,7 +51,7 @@ describe("radio-station-information Integration Tests", () => {
     });
 
     it("should handle $orderby parameter correctly", async () => {
-      const response = await client.getRadioStationInformation({
+      const response = await client.getRadioStations({
         $top: 5,
         $orderby: "StationName asc",
       });
@@ -69,7 +69,7 @@ describe("radio-station-information Integration Tests", () => {
 
     beforeAll(async () => {
       // Get a valid ID from the list endpoint
-      const response = await client.getRadioStationInformation({
+      const response = await client.getRadioStations({
         $top: 1,
       });
       if (response.value.length > 0) {
@@ -81,7 +81,7 @@ describe("radio-station-information Integration Tests", () => {
 
     it("should fetch a single item by ID", async () => {
       if (validId) {
-        const response = await client.getRadioStationInformationById(validId);
+        const response = await client.getRadioStationById(validId);
 
         expect(response).toBeDefined();
         expect(response["@odata.context"]).toBeDefined();
@@ -96,7 +96,7 @@ describe("radio-station-information Integration Tests", () => {
 
     it("should handle $select parameter correctly", async () => {
       if (validId) {
-        const response = await client.getRadioStationInformationById(validId, {
+        const response = await client.getRadioStationById(validId, {
           $select: "ID,Municipality,StationName",
         });
 

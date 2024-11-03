@@ -1,6 +1,6 @@
 import { DEFAULT_BASE_URL } from "./constants";
 import {
-  getAircraftRegister,
+  getAircraftRegisters,
   getAircraftRegisterById,
   getTETRAMobileNetworkCodeById,
   getTETRAMobileNetworkCodes,
@@ -9,27 +9,27 @@ import {
   getShipRegisters,
   getShipRegisterById,
   getGeneralServiceAreas,
-  getVehicleInformationSystemCodeById,
-  getVehicleInformationSystemCodes,
+  getVehicleSystemCodeById,
+  getVehicleSystemCodes,
   getAutoreporters,
-  getInfomaps,
   getAutoreporterById,
+  getInfomaps,
   getInfomapById,
   getAutoreporterUTCs,
   getAutoreporterUTCById,
-  getInternationalTelecomOperatorIds,
-  getInternationalTelecomOperatorIdById,
+  getInternationalTelecomOperators,
+  getInternationalTelecomOperatorById,
   getLandlineTelephoneNetworkSubscriberNumbers,
   getLandlineTelephoneNetworkSubscriberNumberById,
-  getFixedNetworkMunicipalitySpecificAvailability,
-  getFixedNetworkProvinceSpecificAvailability,
+  getFixedNetworkMunicipalitySpecificAvailabilities,
+  getFixedNetworkProvinceSpecificAvailabilities,
   getBroadbandProjects,
   getShortMessageServiceNumbers,
   getMobileCommunicationNetworkAreaCodes,
   getMobileCommunicationNetworkAreaCodeById,
-  getMobileCommunicationNetworkMunicipalitySpecificAvailability,
+  getMobileCommunicationNetworkMunicipalitySpecificAvailabilities,
   getMobileCommunicationNetworkMunicipalitySpecificAvailabilityById,
-  getMobileCommunicationNetworkProvinceSpecificAvailability,
+  getMobileCommunicationNetworkProvinceSpecificAvailabilities,
   getMobileCommunicationNetworkProvinceSpecificAvailabilityById,
   getMarineRadioNumbers,
   getMarineRadioNumberById,
@@ -37,21 +37,21 @@ import {
   getMobileNetworkCodeById,
   getRadioAmateurCallSigns,
   getRadioAmateurCallSignById,
-  getRadioStationInformation,
-  getRadioStationInformationById,
+  getRadioStations,
+  getRadioStationById,
   getFreeRadioMicrophoneFrequencies,
   getRailwayEquipmentRegisters,
   getRailwayEquipmentRegisterById,
-  getFrequencyDistributionTable,
+  getFrequencyDistributionTables,
   getFrequencyDistributionTableById,
-  getFrequencyDistributionTableFinland,
+  getFrequencyDistributionTablesFinland,
   getFrequencyDistributionTableFinlandById,
-  getFrequencyDistributionTableSweden,
+  getFrequencyDistributionTablesSweden,
   getFrequencyDistributionTableSwedenById,
   getTelecomCompanyIdentifiers,
   getTelecomCompanyIdentifierById,
-  getTelevisionStationInformation,
-  getTelevisionStationInformationById,
+  getTelevisionStations,
+  getTelevisionStationById,
   getNationalServiceNumbers,
   getNationalServiceNumberById,
   getNationalSubscriberNumbers,
@@ -90,8 +90,8 @@ export const createClient = (config?: TraficomClientConfig): TraficomClient => {
       getTETRAMobileNetworkCodes(resolvedBaseUrl, params),
     getTETRAMobileNetworkCodeById: (id, params = {}) =>
       getTETRAMobileNetworkCodeById(resolvedBaseUrl, id, params),
-    getAircraftRegister: (params = {}) =>
-      getAircraftRegister(resolvedBaseUrl, params),
+    getAircraftRegisters: (params = {}) =>
+      getAircraftRegisters(resolvedBaseUrl, params),
     getAircraftRegisterById: (id, params = {}) =>
       getAircraftRegisterById(resolvedBaseUrl, id, params),
     getVehicleRegisters: (params = {}) =>
@@ -103,9 +103,9 @@ export const createClient = (config?: TraficomClientConfig): TraficomClient => {
     getShipRegisterById: (id, params = {}) =>
       getShipRegisterById(resolvedBaseUrl, id, params),
     getVehicleInformationSystemCodes: (params = {}) =>
-      getVehicleInformationSystemCodes(resolvedBaseUrl, params),
+      getVehicleSystemCodes(resolvedBaseUrl, params),
     getVehicleInformationSystemCodeById: (id, params = {}) =>
-      getVehicleInformationSystemCodeById(resolvedBaseUrl, id, params),
+      getVehicleSystemCodeById(resolvedBaseUrl, id, params),
     getAutoreporters: (params = {}) =>
       getAutoreporters(resolvedBaseUrl, params),
     getAutoreporterById: (id, params = {}) =>
@@ -118,9 +118,9 @@ export const createClient = (config?: TraficomClientConfig): TraficomClient => {
     getAutoreporterUTCById: (id, params = {}) =>
       getAutoreporterUTCById(resolvedBaseUrl, id, params),
     getInternationalTelecomOperatorIds: (params = {}) =>
-      getInternationalTelecomOperatorIds(resolvedBaseUrl, params),
+      getInternationalTelecomOperators(resolvedBaseUrl, params),
     getInternationalTelecomOperatorIdById: (id, params = {}) =>
-      getInternationalTelecomOperatorIdById(resolvedBaseUrl, id, params),
+      getInternationalTelecomOperatorById(resolvedBaseUrl, id, params),
     getLandlineTelephoneNetworkSubscriberNumbers: (params = {}) =>
       getLandlineTelephoneNetworkSubscriberNumbers(resolvedBaseUrl, params),
     getLandlineTelephoneNetworkSubscriberNumberById: (id, params = {}) =>
@@ -130,9 +130,12 @@ export const createClient = (config?: TraficomClientConfig): TraficomClient => {
         params,
       ),
     getFixedNetworkMunicipalitySpecificAvailability: (params = {}) =>
-      getFixedNetworkMunicipalitySpecificAvailability(resolvedBaseUrl, params),
+      getFixedNetworkMunicipalitySpecificAvailabilities(
+        resolvedBaseUrl,
+        params,
+      ),
     getFixedNetworkProvinceSpecificAvailability: (params = {}) =>
-      getFixedNetworkProvinceSpecificAvailability(resolvedBaseUrl, params),
+      getFixedNetworkProvinceSpecificAvailabilities(resolvedBaseUrl, params),
     getBroadbandProjects: (params = {}) =>
       getBroadbandProjects(resolvedBaseUrl, params),
     getShortMessageServiceNumbers: (params = {}) =>
@@ -144,7 +147,7 @@ export const createClient = (config?: TraficomClientConfig): TraficomClient => {
     getMobileCommunicationNetworkMunicipalitySpecificAvailability: (
       params = {},
     ) =>
-      getMobileCommunicationNetworkMunicipalitySpecificAvailability(
+      getMobileCommunicationNetworkMunicipalitySpecificAvailabilities(
         resolvedBaseUrl,
         params,
       ),
@@ -158,7 +161,7 @@ export const createClient = (config?: TraficomClientConfig): TraficomClient => {
         params,
       ),
     getMobileCommunicationNetworkProvinceSpecificAvailability: (params = {}) =>
-      getMobileCommunicationNetworkProvinceSpecificAvailability(
+      getMobileCommunicationNetworkProvinceSpecificAvailabilities(
         resolvedBaseUrl,
         params,
       ),
@@ -183,10 +186,10 @@ export const createClient = (config?: TraficomClientConfig): TraficomClient => {
       getRadioAmateurCallSigns(resolvedBaseUrl, params),
     getRadioAmateurCallSignById: (id, params = {}) =>
       getRadioAmateurCallSignById(resolvedBaseUrl, id, params),
-    getRadioStationInformation: (params = {}) =>
-      getRadioStationInformation(resolvedBaseUrl, params),
-    getRadioStationInformationById: (id, params = {}) =>
-      getRadioStationInformationById(resolvedBaseUrl, id, params),
+    getRadioStations: (params = {}) =>
+      getRadioStations(resolvedBaseUrl, params),
+    getRadioStationById: (id, params = {}) =>
+      getRadioStationById(resolvedBaseUrl, id, params),
     getFreeRadioMicrophoneFrequencies: (locationParams, params = {}) =>
       getFreeRadioMicrophoneFrequencies(
         resolvedBaseUrl,
@@ -197,16 +200,16 @@ export const createClient = (config?: TraficomClientConfig): TraficomClient => {
       getRailwayEquipmentRegisters(resolvedBaseUrl, params),
     getRailwayEquipmentRegisterById: (id, params = {}) =>
       getRailwayEquipmentRegisterById(resolvedBaseUrl, id, params),
-    getFrequencyDistributionTable: (params = {}) =>
-      getFrequencyDistributionTable(resolvedBaseUrl, params),
+    getFrequencyDistributionTables: (params = {}) =>
+      getFrequencyDistributionTables(resolvedBaseUrl, params),
     getFrequencyDistributionTableById: (id, params = {}) =>
       getFrequencyDistributionTableById(resolvedBaseUrl, id, params),
-    getFrequencyDistributionTableFinland: (params = {}) =>
-      getFrequencyDistributionTableFinland(resolvedBaseUrl, params),
+    getFrequencyDistributionTablesFinland: (params = {}) =>
+      getFrequencyDistributionTablesFinland(resolvedBaseUrl, params),
     getFrequencyDistributionTableFinlandById: (id, params = {}) =>
       getFrequencyDistributionTableFinlandById(resolvedBaseUrl, id, params),
-    getFrequencyDistributionTableSweden: (params = {}) =>
-      getFrequencyDistributionTableSweden(resolvedBaseUrl, params),
+    getFrequencyDistributionTablesSweden: (params = {}) =>
+      getFrequencyDistributionTablesSweden(resolvedBaseUrl, params),
     getFrequencyDistributionTableSwedenById: (id, params = {}) =>
       getFrequencyDistributionTableSwedenById(resolvedBaseUrl, id, params),
     getTelecomCompanyIdentifiers: (params = {}) =>
@@ -214,9 +217,9 @@ export const createClient = (config?: TraficomClientConfig): TraficomClient => {
     getTelecomCompanyIdentifierById: (id, params = {}) =>
       getTelecomCompanyIdentifierById(resolvedBaseUrl, id, params),
     getTelevisionStationInformation: (params = {}) =>
-      getTelevisionStationInformation(resolvedBaseUrl, params),
+      getTelevisionStations(resolvedBaseUrl, params),
     getTelevisionStationInformationById: (id, params = {}) =>
-      getTelevisionStationInformationById(resolvedBaseUrl, id, params),
+      getTelevisionStationById(resolvedBaseUrl, id, params),
     getNationalServiceNumbers: (params = {}) =>
       getNationalServiceNumbers(resolvedBaseUrl, params),
     getNationalServiceNumberById: (id, params = {}) =>

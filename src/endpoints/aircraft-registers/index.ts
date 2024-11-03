@@ -1,5 +1,5 @@
 export {
-  getAircraftRegister,
+  getAircraftRegisters,
   getAircraftRegisterById,
-} from "./aircraft-register";
-export type { AircraftRegister } from "./aircraft-register.types";
+} from "./aircraft-registers";
+export type { AircraftRegister } from "./aircraft-registers.types";

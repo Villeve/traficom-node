@@ -1,5 +1,5 @@
-import { createClient } from "@/index";
-import { TraficomError } from "@/classes";
+import { TraficomError } from "../src/classes";
+import { createClient } from "../src/index";
 
 describe("national-subscriber-numbers Integration Tests", () => {
   const client = createClient();

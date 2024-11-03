@@ -1,5 +1,5 @@
 export {
   getVehicleRegisters,
   getVehicleRegisterById,
-} from "./vehicle-register";
-export type { VehicleRegister } from "./vehicle-register.types";
+} from "./vehicle-registers";
+export type { VehicleRegister } from "./vehicle-registers.types";

@@ -6,11 +6,11 @@ const client = createClient();
 async function fetchAircraftRegisters() {
   try {
     // Fetch all aircraft registers
-    const allRegisters = await client.getAircraftRegister();
+    const allRegisters = await client.getAircraftRegisters();
     console.log("All Aircraft Registers:", allRegisters);
 
     // Fetch aircraft registers with custom parameters
-    const filteredRegisters = await client.getAircraftRegister({
+    const filteredRegisters = await client.getAircraftRegisters({
       $top: 5,
       $orderby: "Aircraft_name",
       $select: "ID,Aircraft_name,ICAO",

@@ -1,14 +1,14 @@
 import {
-  API_VERSION,
-  FREE_RADIO_MICROPHONE_FREQUENCIES_ENDPOINT,
-} from "@/constants";
-import {
   FreeRadioMicrophoneFrequency,
   FreeRadioMicrophoneFrequencyParams,
 } from "./free-radio-microphone-frequencies.types";
-import { fetchJson } from "@/utils/fetch-json";
-import { handleApiError } from "@/utils/error-handler";
+import {
+  API_VERSION,
+  FREE_RADIO_MICROPHONE_FREQUENCIES_ENDPOINT,
+} from "@/constants";
 import { MultiEntityResponse, ExtendedQueryParams } from "@/types";
+import { handleApiError } from "@/utils/error-handler";
+import { fetchJson } from "@/utils/fetch-json";
 
 export const getFreeRadioMicrophoneFrequencies = async (
   baseUrl: string,

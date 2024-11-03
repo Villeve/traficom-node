@@ -1,5 +1,5 @@
 export {
   getTETRAMobileNetworkCodes,
   getTETRAMobileNetworkCodeById,
-} from "./tetra-mobile-network-code";
-export type { TETRAMobileNetworkCode } from "./tetra-mobile-network-code.types";
+} from "./tetra-mobile-network-codes";
+export type { TETRAMobileNetworkCode } from "./tetra-mobile-network-codes.types";

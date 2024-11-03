@@ -1,4 +1,4 @@
-import { createClient } from "@/index";
+import { createClient } from "../src/index";
 
 describe("mobile-communication-network-area-codes Integration Tests", () => {
   let client: ReturnType<typeof createClient>;

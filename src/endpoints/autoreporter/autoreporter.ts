@@ -1,6 +1,6 @@
 import { Autoreporter } from "./autoreporter.types";
-import { createEndpointHandlers } from "@/utils/endpoint-factory";
 import { AUTOREPORTER_ENDPOINT } from "@/constants";
+import { createEndpointHandlers } from "@/utils/endpoint-factory";
 
 const { getAll, getById } = createEndpointHandlers<Autoreporter>(
   AUTOREPORTER_ENDPOINT,

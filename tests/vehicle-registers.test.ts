@@ -1,5 +1,5 @@
-import { TraficomError } from "@/classes/errors";
-import { createClient } from "@/index";
+import { TraficomError } from "../src/classes";
+import { createClient } from "../src/index";
 
 describe("Vehicle Register Integration Tests", () => {
   let client: ReturnType<typeof createClient>;

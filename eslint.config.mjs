@@ -1,8 +1,9 @@
-import globals from "globals";
 import pluginJs from "@eslint/js";
-import tseslint from "typescript-eslint";
-import prettierPlugin from "eslint-plugin-prettier";
 import prettierConfig from "eslint-config-prettier";
+import importPlugin from "eslint-plugin-import";
+import prettierPlugin from "eslint-plugin-prettier";
+import globals from "globals";
+import tseslint from "typescript-eslint";
 
 export default [
   {
@@ -22,9 +23,20 @@ export default [
   {
     plugins: {
       prettier: prettierPlugin,
+      import: importPlugin,
     },
     rules: {
       "prettier/prettier": "error",
+      "@typescript-eslint/explicit-function-return-type": "error",
+      "@typescript-eslint/no-explicit-any": "error",
+      "import/order": [
+        "error",
+        {
+          groups: ["builtin", "external", "internal"],
+          "newlines-between": "always",
+          alphabetize: { order: "asc" },
+        },
+      ],
     },
   },
   prettierConfig,

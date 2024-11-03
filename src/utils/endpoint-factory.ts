@@ -1,14 +1,24 @@
-import { fetchJson } from "./fetch-json";
 import { handleApiError } from "./error-handler";
+import { fetchJson } from "./fetch-json";
+import { API_VERSION } from "@/constants";
 import {
   MultiEntityResponse,
   SingleEntityResponse,
   CommonQueryParams,
   ExtendedQueryParams,
 } from "@/types";
-import { API_VERSION } from "@/constants";
 
-export function createEndpointHandlers<T>(baseEndpoint: string) {
+export function createEndpointHandlers<T>(baseEndpoint: string): {
+  getAll: (
+    baseUrl: string,
+    params?: ExtendedQueryParams,
+  ) => Promise<MultiEntityResponse<T>>;
+  getById: (
+    baseUrl: string,
+    id: number,
+    params?: CommonQueryParams,
+  ) => Promise<SingleEntityResponse<T>>;
+} {
   return {
     getAll: async (
       baseUrl: string,

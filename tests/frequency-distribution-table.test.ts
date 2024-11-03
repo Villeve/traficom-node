@@ -1,11 +1,11 @@
-import { createClient } from "@/index";
+import { createClient } from "../src/index";
 
 describe("frequency-distribution-table Integration Tests", () => {
   const client = createClient();
 
   describe("getFrequencyDistributionTable", () => {
     it("should fetch frequency distribution table data successfully", async () => {
-      const response = await client.getFrequencyDistributionTable({
+      const response = await client.getFrequencyDistributionTables({
         $top: 10,
       });
 
@@ -27,7 +27,7 @@ describe("frequency-distribution-table Integration Tests", () => {
 
     it("should handle $top parameter correctly", async () => {
       const top = 5;
-      const response = await client.getFrequencyDistributionTable({
+      const response = await client.getFrequencyDistributionTables({
         $top: top,
       });
 
@@ -35,7 +35,7 @@ describe("frequency-distribution-table Integration Tests", () => {
     });
 
     it("should handle $select parameter correctly", async () => {
-      const response = await client.getFrequencyDistributionTable({
+      const response = await client.getFrequencyDistributionTables({
         $select: "ID,Frequency_band_lower_limit,Frequency_band_upper_limit",
       });
 
@@ -50,7 +50,7 @@ describe("frequency-distribution-table Integration Tests", () => {
     });
 
     it("should handle $orderby parameter correctly", async () => {
-      const response = await client.getFrequencyDistributionTable({
+      const response = await client.getFrequencyDistributionTables({
         $orderby: "Sub_band_lower_limit__Hz_ asc",
         $top: 10,
       });
@@ -70,7 +70,7 @@ describe("frequency-distribution-table Integration Tests", () => {
 
     beforeAll(async () => {
       // Get a valid ID from the list endpoint
-      const response = await client.getFrequencyDistributionTable({
+      const response = await client.getFrequencyDistributionTables({
         $top: 1,
       });
       if (response.value.length > 0) {

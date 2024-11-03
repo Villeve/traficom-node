@@ -1,4 +1,4 @@
-import { createClient } from "@/index";
+import { createClient } from "../src/index";
 
 describe("free-radio-microphone-frequencies Integration Tests", () => {
   const client = createClient();

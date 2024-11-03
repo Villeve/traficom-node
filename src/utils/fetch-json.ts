@@ -1,5 +1,5 @@
-import { TraficomError } from "@/classes";
 import { handleApiError } from "./error-handler";
+import { TraficomError } from "@/classes";
 
 export async function fetchJson<T>(url: string): Promise<T> {
   try {

@@ -1,4 +1,4 @@
-import { createClient } from "@/index";
+import { createClient } from "../src/index";
 
 describe("general-service-areas Integration Tests", () => {
   const client = createClient();

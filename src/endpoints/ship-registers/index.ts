@@ -1,2 +1,2 @@
-export { getShipRegisters, getShipRegisterById } from "./ship-register";
-export type { ShipRegister } from "./ship-register.types";
+export { getShipRegisters, getShipRegisterById } from "./ship-registers";
+export type { ShipRegister } from "./ship-registers.types";

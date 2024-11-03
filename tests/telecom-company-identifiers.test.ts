@@ -1,5 +1,5 @@
-import { createClient } from "@/index";
-import { TraficomError } from "@/classes";
+import { TraficomError } from "../src/classes";
+import { createClient } from "../src/index";
 
 describe("telecom-company-identifiers Integration Tests", () => {
   let client: ReturnType<typeof createClient>;

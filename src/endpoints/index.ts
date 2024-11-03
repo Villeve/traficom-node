@@ -5,7 +5,7 @@ export {
 } from "./tetra-mobile-network-codes";
 
 export {
-  getAircraftRegister,
+  getAircraftRegisters,
   getAircraftRegisterById,
   type AircraftRegister,
 } from "./aircraft-registers";
@@ -23,8 +23,8 @@ export {
 } from "./ship-registers";
 
 export {
-  getVehicleInformationSystemCodes,
-  getVehicleInformationSystemCodeById,
+  getVehicleSystemCodes,
+  getVehicleSystemCodeById,
   type VehicleInformationSystemCode,
 } from "./vehicle-information-system-codes";
 
@@ -43,10 +43,10 @@ export {
 export { getInfomaps, getInfomapById, type Infomap } from "./infomaps";
 
 export {
-  getInternationalTelecomOperatorIds,
-  getInternationalTelecomOperatorIdById,
+  getInternationalTelecomOperators,
+  getInternationalTelecomOperatorById,
   type InternationalTelecomOperatorId,
-} from "./international-telecom-operator-ids";
+} from "./international-telecom-operator-id";
 
 export {
   getLandlineTelephoneNetworkSubscriberNumbers,
@@ -55,12 +55,12 @@ export {
 } from "./landline-telephone-network-subscriber-numbers";
 
 export {
-  getFixedNetworkMunicipalitySpecificAvailability,
+  getFixedNetworkMunicipalitySpecificAvailabilities,
   type FixedNetworkMunicipalitySpecificAvailability,
 } from "./fixed-network-municipality-specific-availability";
 
 export {
-  getFixedNetworkProvinceSpecificAvailability,
+  getFixedNetworkProvinceSpecificAvailabilities,
   type FixedNetworkProvinceSpecificAvailability,
 } from "./fixed-network-province-specific-availability";
 
@@ -81,13 +81,13 @@ export {
 } from "./mobile-communication-network-area-codes";
 
 export {
-  getMobileCommunicationNetworkMunicipalitySpecificAvailability,
+  getMobileCommunicationNetworkMunicipalitySpecificAvailabilities,
   getMobileCommunicationNetworkMunicipalitySpecificAvailabilityById,
   type MobileCommunicationNetworkMunicipalitySpecificAvailability,
 } from "./mobile-communication-network-municipality-specific-availability";
 
 export {
-  getMobileCommunicationNetworkProvinceSpecificAvailability,
+  getMobileCommunicationNetworkProvinceSpecificAvailabilities,
   getMobileCommunicationNetworkProvinceSpecificAvailabilityById,
   type MobileCommunicationNetworkProvinceSpecificAvailability,
 } from "./mobile-communication-network-province-specific-availability";
@@ -111,8 +111,8 @@ export {
 } from "./radio-amateur-call-signs";
 
 export {
-  getRadioStationInformation,
-  getRadioStationInformationById,
+  getRadioStations,
+  getRadioStationById,
   type RadioStationInformation,
 } from "./radio-station-information";
 
@@ -129,19 +129,19 @@ export {
 } from "./railway-equipment-registers";
 
 export {
-  getFrequencyDistributionTable,
+  getFrequencyDistributionTables,
   getFrequencyDistributionTableById,
   type FrequencyDistributionTable,
 } from "./frequency-distribution-table";
 
 export {
-  getFrequencyDistributionTableFinland,
+  getFrequencyDistributionTablesFinland,
   getFrequencyDistributionTableFinlandById,
   type FrequencyDistributionTableFinland,
 } from "./frequency-distribution-table-finland";
 
 export {
-  getFrequencyDistributionTableSweden,
+  getFrequencyDistributionTablesSweden,
   getFrequencyDistributionTableSwedenById,
   type FrequencyDistributionTableSweden,
 } from "./frequency-distribution-table-sweden";
@@ -153,8 +153,8 @@ export {
 } from "./telecom-company-identifiers";
 
 export {
-  getTelevisionStationInformation,
-  getTelevisionStationInformationById,
+  getTelevisionStations,
+  getTelevisionStationById,
   type TelevisionStationInformation,
 } from "./television-station-information";
 

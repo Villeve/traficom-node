@@ -1,11 +1,11 @@
-import { createClient } from "@/index";
+import { createClient } from "../src/index";
 
 describe("frequency-distribution-table-finland Integration Tests", () => {
   const client = createClient();
 
   describe("getFrequencyDistributionTableFinland", () => {
     it("should fetch frequency distribution table data successfully", async () => {
-      const response = await client.getFrequencyDistributionTableFinland({
+      const response = await client.getFrequencyDistributionTablesFinland({
         $top: 10,
       });
 
@@ -27,7 +27,7 @@ describe("frequency-distribution-table-finland Integration Tests", () => {
 
     it("should handle $top parameter correctly", async () => {
       const top = 5;
-      const response = await client.getFrequencyDistributionTableFinland({
+      const response = await client.getFrequencyDistributionTablesFinland({
         $top: top,
       });
 
@@ -35,7 +35,7 @@ describe("frequency-distribution-table-finland Integration Tests", () => {
     });
 
     it("should handle $select parameter correctly", async () => {
-      const response = await client.getFrequencyDistributionTableFinland({
+      const response = await client.getFrequencyDistributionTablesFinland({
         $select: "ID,Taajuusalue_alaraja,Taajuusalue_yläraja",
       });
 
@@ -50,7 +50,7 @@ describe("frequency-distribution-table-finland Integration Tests", () => {
     });
 
     it("should handle $orderby parameter correctly", async () => {
-      const response = await client.getFrequencyDistributionTableFinland({
+      const response = await client.getFrequencyDistributionTablesFinland({
         $orderby: "Osa_alue_alaraja__Hz_ asc",
         $top: 10,
       });
@@ -70,7 +70,7 @@ describe("frequency-distribution-table-finland Integration Tests", () => {
 
     beforeAll(async () => {
       // Get a valid ID from the list endpoint
-      const response = await client.getFrequencyDistributionTableFinland({
+      const response = await client.getFrequencyDistributionTablesFinland({
         $top: 1,
       });
       if (response.value.length > 0) {

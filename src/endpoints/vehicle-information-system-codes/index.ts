@@ -1,5 +1,5 @@
 export {
-  getVehicleInformationSystemCodes,
-  getVehicleInformationSystemCodeById,
-} from "./vehicle-information-system-code";
-export type { VehicleInformationSystemCode } from "./vehicle-information-system-code.types";
+  getVehicleSystemCodes,
+  getVehicleSystemCodeById,
+} from "./vehicle-information-system-codes";
+export type { VehicleInformationSystemCode } from "./vehicle-information-system-codes.types";

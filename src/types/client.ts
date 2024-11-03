@@ -1,3 +1,5 @@
+import { CommonQueryParams, ExtendedQueryParams } from "./api-params";
+import { MultiEntityResponse, SingleEntityResponse } from "./api-response";
 import {
   TETRAMobileNetworkCode,
   AircraftRegister,
@@ -32,8 +34,6 @@ import {
   NationalSubscriberNumber,
   GeneralServiceArea,
 } from "@/endpoints";
-import { CommonQueryParams, ExtendedQueryParams } from "./api-params";
-import { MultiEntityResponse, SingleEntityResponse } from "./api-response";
 
 /**
  * Configuration options for the Traficom API client
@@ -95,7 +95,7 @@ export interface TraficomClient {
    * @returns A promise containing the aircraft registers and OData context
    * @throws {TraficomError} If there's an error fetching the data
    */
-  getAircraftRegister: (
+  getAircraftRegisters: (
     params?: ExtendedQueryParams,
   ) => Promise<MultiEntityResponse<AircraftRegister>>;
 
@@ -638,7 +638,7 @@ export interface TraficomClient {
    * @returns A promise containing the radio station information and OData context
    * @throws {TraficomError} If there's an error fetching the data
    */
-  getRadioStationInformation: (
+  getRadioStations: (
     params?: ExtendedQueryParams,
   ) => Promise<MultiEntityResponse<RadioStationInformation>>;
 
@@ -651,7 +651,7 @@ export interface TraficomClient {
    * @returns A promise containing a single radio station information and OData context
    * @throws {TraficomError} If there's an error fetching the data
    */
-  getRadioStationInformationById: (
+  getRadioStationById: (
     id: number,
     params?: CommonQueryParams,
   ) => Promise<SingleEntityResponse<RadioStationInformation>>;
@@ -719,7 +719,7 @@ export interface TraficomClient {
    * @returns A promise containing the frequency distribution tables and OData context
    * @throws {TraficomError} If there's an error fetching the data
    */
-  getFrequencyDistributionTable: (
+  getFrequencyDistributionTables: (
     params?: ExtendedQueryParams,
   ) => Promise<MultiEntityResponse<FrequencyDistributionTable>>;
 
@@ -750,7 +750,7 @@ export interface TraficomClient {
    * @returns A promise containing the frequency distribution tables for Finland and OData context
    * @throws {TraficomError} If there's an error fetching the data
    */
-  getFrequencyDistributionTableFinland: (
+  getFrequencyDistributionTablesFinland: (
     params?: ExtendedQueryParams,
   ) => Promise<MultiEntityResponse<FrequencyDistributionTableFinland>>;
 
@@ -781,7 +781,7 @@ export interface TraficomClient {
    * @returns A promise containing the frequency distribution tables for Sweden and OData context
    * @throws {TraficomError} If there's an error fetching the data
    */
-  getFrequencyDistributionTableSweden: (
+  getFrequencyDistributionTablesSweden: (
     params?: ExtendedQueryParams,
   ) => Promise<MultiEntityResponse<FrequencyDistributionTableSweden>>;
 

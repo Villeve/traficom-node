@@ -1,6 +1,6 @@
-import { VehicleRegister } from "./vehicle-register.types";
-import { createEndpointHandlers } from "@/utils/endpoint-factory";
+import { VehicleRegister } from "./vehicle-registers.types";
 import { VEHICLE_ENDPOINT } from "@/constants";
+import { createEndpointHandlers } from "@/utils/endpoint-factory";
 
 const { getAll, getById } =
   createEndpointHandlers<VehicleRegister>(VEHICLE_ENDPOINT);

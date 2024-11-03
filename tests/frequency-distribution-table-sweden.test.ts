@@ -1,11 +1,11 @@
-import { createClient } from "@/index";
+import { createClient } from "../src/index";
 
 describe("frequency-distribution-table-sweden Integration Tests", () => {
   const client = createClient();
 
   describe("getFrequencyDistributionTableSweden", () => {
     it("should fetch frequency distribution table data successfully", async () => {
-      const response = await client.getFrequencyDistributionTableSweden({
+      const response = await client.getFrequencyDistributionTablesSweden({
         $top: 10,
       });
 
@@ -27,7 +27,7 @@ describe("frequency-distribution-table-sweden Integration Tests", () => {
 
     it("should handle $top parameter correctly", async () => {
       const top = 5;
-      const response = await client.getFrequencyDistributionTableSweden({
+      const response = await client.getFrequencyDistributionTablesSweden({
         $top: top,
       });
 
@@ -35,7 +35,7 @@ describe("frequency-distribution-table-sweden Integration Tests", () => {
     });
 
     it("should handle $select parameter correctly", async () => {
-      const response = await client.getFrequencyDistributionTableSweden({
+      const response = await client.getFrequencyDistributionTablesSweden({
         $select: "ID,Frekvensband_nedre_gräns,Frekvensband_övre_gräns",
       });
 
@@ -50,7 +50,7 @@ describe("frequency-distribution-table-sweden Integration Tests", () => {
     });
 
     it("should handle $orderby parameter correctly", async () => {
-      const response = await client.getFrequencyDistributionTableSweden({
+      const response = await client.getFrequencyDistributionTablesSweden({
         $orderby: "Delband_nedre_gräns__Hz_ asc",
         $top: 10,
       });

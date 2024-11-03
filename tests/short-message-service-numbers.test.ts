@@ -1,4 +1,4 @@
-import { createClient } from "@/index";
+import { createClient } from "../src/index";
 
 describe("short-message-service-numbers Integration Tests", () => {
   const client = createClient();
