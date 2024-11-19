@@ -35,6 +35,6 @@ export const getFreeRadioMicrophoneFrequencies = async (
   try {
     return await fetchJson(url);
   } catch (error) {
-    handleApiError(error);
+    return handleApiError(error);
   }
 };

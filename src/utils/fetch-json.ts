@@ -1,7 +1,7 @@
 import { handleApiError } from "./error-handler";
 import { TraficomError } from "@/classes";
 
-export async function fetchJson<T>(url: string): Promise<T> {
+export const fetchJson = async <T>(url: string): Promise<T> => {
   try {
     const response = await fetch(url);
 
@@ -14,6 +14,6 @@ export async function fetchJson<T>(url: string): Promise<T> {
 
     return await response.json();
   } catch (error) {
-    handleApiError(error);
+    return handleApiError(error);
   }
-}
+};

@@ -3,7 +3,7 @@ import { createClient } from "traficom-node";
 
 const client = createClient();
 
-async function fetchAircraftRegisters() {
+const fetchAircraftRegisters = async () => {
   try {
     // Fetch all aircraft registers
     const allRegisters = await client.getAircraftRegisters();
@@ -26,6 +26,6 @@ async function fetchAircraftRegisters() {
   } catch (error) {
     console.error("Error fetching Aircraft Registers:", error);
   }
-}
+};
 
 fetchAircraftRegisters();

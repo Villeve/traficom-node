@@ -32,7 +32,7 @@ export function createEndpointHandlers<T>(baseEndpoint: string): {
       try {
         return await fetchJson(url);
       } catch (error) {
-        handleApiError(error);
+        return handleApiError(error);
       }
     },
 
@@ -49,7 +49,7 @@ export function createEndpointHandlers<T>(baseEndpoint: string): {
       try {
         return await fetchJson(url);
       } catch (error) {
-        handleApiError(error);
+        return handleApiError(error);
       }
     },
   };

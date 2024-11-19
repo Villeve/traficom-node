@@ -1,6 +1,6 @@
 import { TraficomError } from "@/classes";
 
-export function handleApiError(error: unknown): never {
+export const handleApiError = (error: unknown): never => {
   if (error instanceof TraficomError) {
     throw error;
   }
@@ -14,4 +14,4 @@ export function handleApiError(error: unknown): never {
   }
 
   throw new TraficomError("An unknown error occurred");
-}
+};

@@ -3,7 +3,7 @@ import { createClient } from "traficom-node";
 
 const client = createClient();
 
-async function fetchTETRAMobileNetworkCodes() {
+const fetchTETRAMobileNetworkCodes = async () => {
   try {
     // Fetch all TETRA mobile network codes
     const allCodes = await client.getTETRAMobileNetworkCodes();
@@ -25,6 +25,6 @@ async function fetchTETRAMobileNetworkCodes() {
   } catch (error) {
     console.error("Error fetching TETRA Mobile Network Codes:", error);
   }
-}
+};
 
 fetchTETRAMobileNetworkCodes();
